@@ -1,0 +1,299 @@
+* {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.start-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100vh;
+}
+
+.btn-container {
+	display: flex;
+	width: 100%;
+	left:0;
+	height: 15%;
+	align-items: flex-start;
+	justify-items: center;
+}
+
+.start-btn {
+	top: 5px;
+	left: 5px;
+	/* z-index: 1; */
+	background: #ddd;
+	color: blue;
+	border: .0625em solid black;
+	text-decoration: none;
+}
+
+.i-container {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 80%;
+	align-items: center;
+	justify-items: center;
+}
+
+.instruct {
+	position: absolute;
+	left: 40%;
+	top: 40%;
+	transform: translate(-35%, -25%);	
+	margin: 0 auto;
+	font-size: 2em;
+	font-weight: bold;
+	color: red;
+	z-index: 2;
+}
+
+.hidden {
+	display: none;
+}
+
+.instruct.hidden {
+	display: none;
+}
+
+.featured-section {
+	position: absolute;
+	bottom: 10%;
+	/* margin: 0 auto auto;
+	left: 50%;
+	transform: translate(-50%, 0); */
+
+	/* z-index: 1; */
+}
+
+.instruct-help {
+	color: blue;
+}
+
+@media (max-width: 620px) {
+	.instruct-help {
+		display: none;
+	}
+}
+
+[data-useron="0"] {
+	display: inline-block;
+}
+
+[data-useron="1"] {
+	display: none;
+}
+
+[data-useron="2"] {
+	display: none;
+}
+
+[data-useron="3"] {
+	display: inline-block;
+}
+
+[data-useron="10"] {
+	display: none;
+}
+
+[data-fduseron="0"] {
+	display: inline-block;
+}
+
+[data-fduseron="1"] {
+	display: none;
+}
+
+[data-fduseron="2"] {
+	display: none;
+}
+
+[data-fduseron="3"] {
+	display: inline-block;
+}
+
+[data-loginuseron="0"] {
+	display: inline-block;
+}
+
+[data-loginuseron="1"] {
+	display: inline-block;
+}
+
+[data-loginuseron="2"] {
+	display: none;
+}
+
+[data-loginuseron="3"] {
+	display: none;
+}
+
+[data-loginuseron="10"] {
+	display: none;
+}
+
+[data-tabsuseron="0"] {
+	display: none;
+}
+
+[data-tabsuseron="1"] {
+	display: block;
+}
+
+[data-tabsuseron="2"] {
+	display: none;
+}
+
+[data-tabsuseron="3"] {
+	display: none;
+}
+
+[data-loginheader="0"] {
+	display: none;
+}
+
+[data-loginheader="1"] {
+	display: none;
+}
+
+[data-loginheader="2"] {
+	display: none;
+}
+
+[data-loginheader="3"] {
+	display: inline-block;
+}
+
+[data-loginheader="10"] {
+	display: inline-block;
+}
+
+[data-formuseron="0"] {
+	display: none
+}
+
+[data-formuseron="1"] {
+	display: inline-block;
+}
+
+[data-formuseron="2"] {
+	display: none;
+}
+
+[data-formuseron="3"] {
+	display: none;
+}
+
+[data-logonlyuseron="0"] {
+	display: none;
+}
+
+[data-logonlyuseron="1"] {
+	display: none;
+}
+
+[data-logonlyuseron="2"] {
+	display: block;
+}
+
+[data-logonlyuseron="3"] {
+	visibility: hidden;
+}
+
+[data-clickmeuseron="0"] {
+	display: none;
+}
+
+[data-clickmeuseron="1"] {
+	display: none;
+}
+
+[data-clickmeuseron="2"] {
+	display: none;
+}
+
+[data-clickmeuseron="3"] {
+	display: block;
+}
+
+[data-clickmeuseron="10"] {
+	display: block;
+}
+
+[data-about-useron="0"] {
+	display: block;
+}
+
+[data-about-useron="1"] {
+	display: block;
+}
+
+[data-about-useron="2"] {
+	display: block;
+}
+
+[data-about-useron="3"] {
+	display: block;
+}
+
+[data-about-useron="10"] {
+	display: block;
+}
+
+[data-homeuseron="0"] {
+	display: block;
+}
+
+[data-homeuseron="1"] {
+	display: block;
+}
+
+[data-homeuseron="2"] {
+	display: block;
+}
+
+[data-homeuseron="3"] {
+	display: none;
+}
+
+[data-homeuseron="10"] {
+	display: block;
+}
+
+[data-messageoff="0"] {
+	display: block;
+}
+
+[data-messageoff="1"] {
+	visibility: hidden;
+}
+
+[data-messageon="0"] {
+	display: none;
+}
+
+[data-messageon="1"] {
+	display: block;
+}
+
+[data-logoutuseron="0"] {
+	display: none;
+}
+
+[data-logoutuseron="1"] {
+	display: none;
+}
+
+[data-logoutuseron="2"] {
+	display: none;
+}
+
+[data-logoutuseron="3"] {
+	display: block;
+}
+
+[data-logoutuseron="10"] {
+	display: none;
+}

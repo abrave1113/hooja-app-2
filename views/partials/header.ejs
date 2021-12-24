@@ -1,0 +1,15 @@
+<header>
+	<nav class='header-main'>
+        <%-include('../_logout_message')%>
+        <ul id='nav-list'data-messageoff="<%=messageonoff%>">
+            <li class="header-item" data-logoutuseron="<%=useron%>"><a href='/users/logout'>Logout</a></li>
+            <li class="header-item" data-loginuseron="<%=useron%>"><a href='/users/user/loginForm'>Sign In</a></li>
+            <li class="header-item"><a href='/users/about'>About</a></li>
+            <li class="header-item">Settings</li>
+            <li class="header-item"><a href='/deweys/new'>Join</a></li>
+            <li class="header-item" data-loginuseron="<%=useron%>"><a href='/deweys'>Home</a></li>
+            <li class="header-item" data-clickmeuseron="<%=useron%>"><a href='/deweys/deweys'>Home</a></li>
+        </ul>
+		
+	</nav>
+</header>

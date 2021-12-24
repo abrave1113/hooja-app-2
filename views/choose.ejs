@@ -1,0 +1,228 @@
+<div class="page-wrapper">
+    <div class='btn-container' data-fduseron='<%=useron%>'>
+	
+	</div>
+	<div class="body-container">
+		<div class="spacer"></div>	
+		<div id="choose-container" class="choose-container">
+			<a href='#' id='faceSelection1' onclick='tallies(event)' data-id='<%=id1%>' data-pictureimagepath='<%=pictureImagePath1%>' >
+				<div class="block  o-block">
+					<div class="o-box">
+						<div style="background-image:url(<%=pictureImagePath1%>);background-repeat:none;background-size:cover" class='box  orange  translateR' id='box1'><%=name1%></div> 
+					</div>
+				</div>
+			</a>
+			<a href='#' id='faceSelection2' onclick='tallies(event)' data-id='<%=id2%>' data-pictureimagepath='<%=pictureImagePath2%>'>
+				<div class="block  b-block">
+					<div class="b-box">
+						<div style="background-image:url(<%=pictureImagePath2%>);background-repeat:none;background-size:cover" class='box  blue  translate' id='box2' ><%=name2%></div>
+					</div>
+			</div>
+			</a>
+			<a href='#' id='faceSelection3' onclick='tallies2(event)' data-id='<%=id3%>' data-pictureimagepath='<%=pictureImagePath3%>' data-image='<%=pictureImagePath4%>'>
+				<div class="block  g-block">
+					<div class="g-box">
+						<div style="background-image:url(<%=pictureImagePath3%>);background-repeat:none;background-size:cover" class='box  green  translateR'  id='box3'><%=name3%></div>
+					</div>
+				</div>
+			</a>
+			<a href='#' id='faceSelection4' onclick='tallies2(event)' data-id='<%=id4%>' data-pictureImagePath='<%=pictureImagePath4%>' >
+				<div class="block  y-block">
+					<div class="y-box">
+						<div style="background-image:url(<%=pictureImagePath4%>);background-repeat:none;background-size:cover" class='box  yellow  translate'  id='box4'><%=name4%></div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="submit-button-wrapper">
+		<div class="submit-button-grid">
+			<a href="#" id='submittal' class='submit-btn' onclick='submittal()'>Submit</a>		
+			<a href='#' id='next-choose-btn' class='choose' onclick='chooseAgain()'>Choose Again</a>		
+		</div>
+	</div>
+
+		<div id='fs1' class='hide-container face-container'></div>
+		<div id='fs2' class='hide-container face-container'></div>
+
+</div>	
+	<script>
+
+const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
+const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
+const faceSelection3Id = document.getElementById('faceSelection3').dataset.id
+const faceSelection4Id = document.getElementById('faceSelection4').dataset.id
+
+const faceSelection1Image = document.getElementById('faceSelection1').dataset.pictureimagepath
+const faceSelection2Image = document.getElementById('faceSelection2').dataset.pictureimagepath
+const faceSelection3Image = document.getElementById('faceSelection3').dataset.pictureimagepath
+const faceSelection4Image = document.getElementById('faceSelection4').dataset.pictureimagepath
+
+let dewArray1 = [faceSelection1Id, faceSelection2Id]
+let dewArray2 = [faceSelection3Id, faceSelection4Id]
+console.log(dewArray1, dewArray2)
+console.log(!faceSelection1Image)
+
+let sellImage
+let sellImage2
+
+// const socket = io('http://localhost:6001')
+
+		function tallies(event) {
+			// localStorage.setItem('first', null)
+			// var selectionTop = 0
+
+			// const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
+			// const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
+
+			const selectionTop = document.getElementById(event.currentTarget.id)
+			console.log(!selectionTop)
+			const sellId = selectionTop.dataset.id
+			sellImage = selectionTop.dataset.pictureimagepath
+ 			// console.log(!sellId)
+			// console.log(sellImage)
+			localStorage.setItem('first', sellId )
+			// localStorage.setItem('firstImage', sellImage )			 
+			dewTall(sellId)
+
+			dewView(sellImage)
+
+	}
+		function tallies2(event) {
+			// localStorage.setItem('second', null)
+			// var selectionBottom = 0
+
+			// const faceSelection3Id = document.getElementById('faceSelection3').dataset.id
+			// const faceSelection4Id = document.getElementById('faceSelection4').dataset.id
+
+			const selectionBottom = document.getElementById(event.currentTarget.id)
+			// console.log(selectionBottom)
+			const sellId2 = selectionBottom.dataset.id
+			sellImage2 = selectionBottom.dataset.pictureimagepath			
+			console.log(!sellId2)
+			localStorage.setItem('second', sellId2 )
+			// localStorage.setItem('secondImage', sellImage2 )			 		
+			dewTall2(sellId2)
+			dewView2(sellImage2)			
+	}
+
+	function dewTall(id) {
+		return fetch(`/deweys/selection1/${id}`, () => {
+			res.send(req.params.id)
+			}).then(response => {
+			if(response.status >= 400) {
+				return response.json().then(errResData => {
+					const error = new Error('Something went wrong!')
+					error.data = errResData;
+					throw error; 
+				})
+		}
+		// return response.json();
+	});
+};
+
+function dewTall2(id) {
+		return fetch(`/deweys/selection2/${id}`, () => {
+			res.send(req.params.id)
+			}).then(response => {
+			if(response.status >= 400) {
+				return response.json().then(errResData => {
+					const error = new Error('Something went wrong!')
+					error.data = errResData;
+					throw error;
+				})
+		}
+		// return response.json();
+	});
+};
+
+function dewView(picture) {
+	let viewer = document.getElementById('fs1')
+	viewer.setAttribute('style', 'background-image: url(' +`${picture}`+ ');background-repeat:none;background-size:cover')
+	if(viewer.classList.contains('hide-container')) {
+		viewer.classList.remove('hide-container')
+	}
+}
+
+function dewView2(picture) {
+	let viewer = document.getElementById('fs2')
+	viewer.setAttribute('style', 'background-image: url(' +`${picture}`+ ');background-repeat:none;background-size:cover')
+	if(viewer.classList.contains('hide-container')) {
+		viewer.classList.remove('hide-container')
+	}	
+}
+
+function submittal() {
+// hit new route that takes the first and second variables and passes them to the route
+	// document.querySelector('.choose-container').classList.add('hide-container')
+	const first = localStorage.getItem('first')
+	console.log(first)
+	const second = localStorage.getItem('second')
+	const firstImage = localStorage.getItem('firstImage')
+
+	const viewer1 = document.getElementById('fs1')
+	viewer1.setAttribute('background-image','firstImage')
+	// if(viewer1.classList.contains('hide-container')) {
+	// 	viewer1.classList.remove('hide-container')
+	// }
+	
+	const viewer2 = document.getElementById('fs2')
+	// viewer2.setAttribute('background-image','picture')
+	// if(viewer2.classList.contains('hide-container')) {
+	// 	viewer2.classList.remove('hide-container')
+	// }	
+	
+	const chooseGrid = document.getElementById('choose-container')
+	// chooseGrid.setAttribute('style', '{display:none}')
+	if(!chooseGrid.classList.contains('hide-container')) {
+		chooseGrid.classList.add('hide-container')
+	}
+	
+		return fetch('/deweys/submittal/selected', {
+		method: 'POST',
+		headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json'
+		},
+		body: JSON.stringify( {first: first, second: second} )
+	})
+	.then(console.log({first, second}))
+	// .then(() => {
+	// 	console.log({first, second})
+	// })
+	// .catch('No data')
+
+	// console.log({first, second})
+	// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
+	
+} 
+
+function chooseAgain() {
+	
+	const first = localStorage.getItem('first')
+	console.log(first)
+	const second = localStorage.getItem('second')
+	
+		return fetch('/deweys/choose', {
+		method: 'GET',
+		headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json'
+		}
+	}).then(() => {
+		// let chooseGrid = document.getElementById('choose-container')
+		// chooseGrid.classList.remove('hide-container')
+		location.reload()
+	})
+	// .then(console.log({first, second}))
+	// .then(() => {
+	// 	console.log({first, second})
+	// })
+	// .catch('No data')
+
+
+	// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
+}
+
+</script>

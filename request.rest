@@ -1,0 +1,65 @@
+GET http://localhost:6001/ranks/addWinRate
+
+###
+
+GET http://localhost:6001/users/users
+
+###
+
+POST http://localhost:6001/users/users
+Content-type: application/json
+
+{
+    "name": "Andrew",
+    "password": "password"
+}
+
+###
+
+# POST http://localhost:6001/users/users/login
+# Content-type: application/json
+
+# {
+#     "name": "Andrew",
+#     "password": "password"
+# }
+
+###
+
+GET http://localhost:6001/deweys/choose 
+authorization: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzIxNjQ2ODV9.0VlNIia8iIGzSCpBbH0G713E3Y6TbZP4hzhBczCsa10
+
+
+###
+POST http://localhost:6001/users/users/login
+content-type: application/json
+
+{
+    "username": "Andrew"
+}
+
+###
+
+GET http://localhost:6001/users/posts
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQW5kcmV3IiwiaWF0IjoxNjMyMjY2NzcyfQ.kMBCijNxzKSyZes12nP2bfUzrp5gx55uq5yKzD0_I9M
+
+
+
+###
+
+POST http://localhost:6001/users/login
+Content-Type: application/json
+
+{
+    "username": "Kyle"
+}
+
+###
+
+POST http://localhost:7001/login
+Content-Type: application/json
+
+{
+    "username": "Andrew"
+}

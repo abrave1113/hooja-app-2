@@ -1,0 +1,41 @@
+.form-greet h1{
+    display: block;
+    width: 100%;
+    margin: 0, auto;
+    font-size: 1em;
+    color: red;
+}
+
+.form-greet {
+    display: inline-block;
+    width:50%;
+    margin-top:0;
+    padding:0;
+}
+
+.form-greet-instruct {
+    display:inline-block;
+    width:100%;
+    color:blue;
+    font-size:0.85em;
+    margin-top:0;
+    padding:0
+}
+
+new-wrap-container {
+    margin-right: 10px;
+    position: relative;
+    top: 100px;
+}
+
+
+/* @media (max-width:345px) {
+    #new-submit-btn {
+        position: absolute;
+        top: 90%;
+        right: 5%;
+        background-color: blue;
+        color: yellow;
+        padding: 5px;
+    }
+} */

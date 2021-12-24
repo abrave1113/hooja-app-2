@@ -1,0 +1,74 @@
+<div class="start-container">
+    <div class='btn-container'>
+        <a href="/ranks/addRandom" id='click-me' class='start-btn click-me' data-clickmeuseron='<%=useron%>'>Click Me</a>
+    </div>
+    <div class="i-container">
+        <div id='login' class='login'>
+            <%-include('_login')%>
+        </div>
+        <div id='login-only' class='login-only'>
+            <%-include('_loginOnly')%>
+        </div>
+        <div id='instruct' class="instruct" data-clickmeuseron="<%=useron%>">Click button at top left to begin your journey</div>
+    </div>
+<br>
+    <div id='featDew' class='featured-section' data-fduseron='<%=useron%>'>
+        <div>
+            <h3 class='instruct-help'>Today's dewey dozen...</h3>
+        </div>
+        <div class='featDew'>
+        <% deweys.forEach( dewey => { %>
+            <a href="/deweys/show/<%=dewey.name%>">
+                <img height="117" width="78" src='<%= dewey.pictureImagePath %>'>
+            </a>
+        <% }) %>
+        </div>
+    </div>
+</div>
+
+<!-- <script>
+    const instruct = document.getElementById('instuct')
+    const login = document.getElementById('login')
+    const clickMe = document.getElementById('click-me')
+    const featDew = document.getElementById('featDew')
+    
+    const observer = new MutationObserver(mutations => {
+        console.log(mutations)
+    })
+    
+    observer.observe(login, { attributes: true, attributeFilter: ['data-useron'] });
+
+    // observerOption = {
+    //     attributes: true
+    // }
+
+    // function callback(mutationList, observer) {
+    //         mutationList.forEach((mutation) => {
+    //             console.log(mutation)
+    //             if(login.dataset.useron == true) {
+    //             clickMe.classList.remove('hide-container')
+    //             featDew.classList.remove('hide-container')
+    //             login.classList.add('hide-container')    
+    //         } else {
+    //             clickMe.classList.add('hide-container')
+    //             featDew.classList.add('hide-container')
+    //             login.classList.remove('hide-container')    
+    //         }
+    //         location.reload()
+    //     })
+    // }
+    
+    // const useron = document.getElementById('login').dataset.type
+
+    // const onSwitch = document.getElementById('login') 
+    
+    // function turnOnHandler(dL) {
+    //     const useron = dL.dataset.useron
+    //     if(useron == true) {
+    //         clickMe.classList.remove('hide-container')
+    //         featDew.classList.remove('hide-container')
+    //         login.classList.add('hide-container')
+    //     }
+    // }
+
+</script> -->

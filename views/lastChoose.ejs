@@ -1,0 +1,233 @@
+<div id="lc-page-wrapper">
+	<div class='btn-container' data-fduseron='<%=useron%>'></div>
+	<div class="body-final-container">
+		<div id="choice-container" class="choice-container">
+			<a href='#' id='faceSelectFinal1' class='faceSelectFinal1' onclick='tallies(event)' data-id='<%=id1%>' data-pictureimagepath='<%=pictureImagePath1%>' data-name='<%=name1%>'>
+					<div style="background-image:url(<%=pictureImagePath1%>);background-repeat:none;background-size:cover" class='box-final' id='box1'><%=name1%>
+					</div> 
+			</a>
+			<a href='#' id='faceSelectFinal2' class='faceSelectFinal2' onclick='tallies(event)' data-id='<%=id2%>' data-pictureimagepath='<%=pictureImagePath2%>' data-name='<%=name2%>'>
+					<div style="background-image:url(<%=pictureImagePath2%>);background-repeat:none;background-size:cover" class='box-final id='box2' ><%=name2%>
+					</div>
+			</a>
+		</div>
+		<a id="btn-label" class="btn-lbl">Choose your Winner!</a>
+		<div id='finalGameClick' class='finalGameClick'>
+			<a href='#' id='next-game-btn' class='game-btn' onclick='dewView()'>Submit Choice</a>		
+		</div>	
+	</div>	
+
+	<div id='theTenName' class='hide-container dwinnername'></div>
+	<div id='theTen' class='hide-container'></div>
+
+	<a href='#' id='next-btn-final' class='nbf hide-container' onclick='startAgain()'>Do it Again</a>		
+
+
+
+
+
+	<!-- <div id='faceSelection1' class='hide-container face-container'></div>
+	<div id='faceSelection2' class='hide-container face-container'></div> -->
+</div>
+
+</div>
+<script>
+
+// const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
+// const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
+
+// const faceSelection1Image = document.getElementById('faceSelection1').dataset.pictureimagepath
+// const faceSelection2Image = document.getElementById('faceSelection2').dataset.pictureimagepath
+
+
+// let dewArray = [faceSelection1Id, faceSelection2Id]
+
+// console.log(dewArray)
+// console.log(!faceSelection1Image)
+
+let sellImageFinal
+
+
+// const socket = io('http://localhost:6001')
+
+	function tallies(event) {
+		// localStorage.setItem('first', null)
+		// var selectionTop = 0
+
+		// const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
+		// const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
+
+		const fsf1 = document.getElementById('faceSelectFinal1')
+		const fsf2 = document.getElementById('faceSelectFinal2')
+
+		if(fsf1.classList.contains('selected')) {
+			fsf1.classList.remove('selected')
+		}
+
+		if(fsf2.classList.contains('selected')) {
+			fsf2.classList.remove('selected')
+		}
+
+		const selectionWin = document.getElementById(event.currentTarget.id)
+		selectionWin.classList.add('selected')
+
+		const sellId = selectionWin.dataset.id
+		const sellImageFinal = selectionWin.dataset.pictureimagepath
+		const sellName = selectionWin.dataset.name
+		localStorage.setItem('winnerId', sellId)
+		localStorage.removeItem('firstImage', sellImageFinal)
+		localStorage.setItem('winnerImage', sellImageFinal)
+		localStorage.setItem('winnerName', sellName)
+
+
+
+		// dewView()
+
+		// const selection
+		// const pos = array.indexOf('selectionWin')
+		// lossPos = (1 - pos)
+
+		// if(nextRound)
+		// // console.log(!selectionTop)
+		// const sellId = selectionWin.id
+		// sellImageFinal = selectionWin.pictureimagepath
+		//  // console.log(!sellId)
+		// // console.log(sellImageFinal)
+		// localStorage.setItem('winner', sellId )
+		// // localStorage.setItem('firstImage', sellImageFinal )			 
+		// dewTall(sellId)
+
+		// dewView(sellImageFinal)
+
+}
+
+
+
+function dewView() {
+	const winnerId = localStorage.getItem('winnerId')
+	const winnerImage = localStorage.getItem('winnerImage')
+	const winnerName = localStorage.getItem('winnerName')
+
+	const picture = winnerImage
+
+	const viewer = document.getElementById('theTen')
+	const finalButtonBank = document.getElementById('finalGameClick')
+	const choiceContainer = document.getElementById('choice-container')
+	const theTenName = document.getElementById('theTenName')
+	const btnLabel = document.getElementById('btn-label')
+	const nextGameBtn = document.getElementById('next-game-btn')
+
+	theTenName.innerText = winnerName
+
+	viewer.setAttribute('style', 'background-image: url(' +`${picture}`+ ');background-repeat:none;background-size:cover');
+
+	if(!finalButtonBank.classList.contains('hide-container')) {
+		btnLabel.classList.add('hide-container')
+		nextGameBtn.classList.add('hide-container')
+		finalButtonBank.classList.add('hide-container')
+		}
+		choiceContainer.classList.add('hide-container')
+		viewer.classList.remove('hide-container')
+		theTenName.classList.remove('hide-container')
+		
+		return dewTall(winnerId)
+}
+
+function dewTall(id) {
+	const playItAgain = document.getElementById('next-btn-final')
+	if(playItAgain.classList.contains('hide-container')) {
+		playItAgain.classList.remove('hide-container')
+	}
+	return fetch(`/deweys/submittal/final/${id}`, () => {
+		res.send(req.params.id)
+		}).then(response => {
+		if(response.status >= 400) {
+			return response.json().then(errResData => {
+				const error = new Error('Something went wrong!')
+				error.data = errResData;
+				throw error;
+			})
+		}
+	// return response.json();
+	});
+
+};
+
+function submittal() {
+// hit new route that takes the first and second variables and passes them to the route
+// document.querySelector('.choose-container').classList.add('hide-container')
+
+
+const viewer = document.getElementById('theTen')
+const winnerId = localStorage.getItem('winnerId')
+
+const winner = roundOneFeed.find(dwy => dwy.id == winnerId)
+
+viewer.setAttribute('background-image','winner.pictureImagePath')
+viewer.classList.remove('hide-container')
+
+// if(viewer1.classList.contains('hide-container')) {
+// 	viewer1.classList.remove('hide-container')
+// }
+
+// const viewer2 = document.getElementById('faceSelection2')
+// viewer2.setAttribute('background-image','picture')
+// if(viewer2.classList.contains('hide-container')) {
+// 	viewer2.classList.remove('hide-container')
+// }	
+
+// const chooseGrid = document.getElementById('choose-container')
+// if(!chooseGrid.classList.contains('hide-container')) {
+// 	chooseGrid.classList.add('hide-container')
+// }
+// 	const faceViewer1 = document.getElementById('faceSelection1')
+// 	const faceViewer2 = document.getElementById('faceSelection2')
+
+// 	faceViewer1.classList.add('hide-container')
+// 	faceViewer2.classList.add('hide-container')
+
+	// return fetch(`/deweys/submittal/final/${winner}`)
+	// , {
+// 	method: 'POST',
+// 	headers: {
+// 	'Accept': 'application/json',
+// 	'Content-Type': 'application/json'
+// 	},
+// 	body: JSON.stringify( {first: first, second: second} )
+// })
+// .then(console.log({first, second}))
+// .then(() => {
+// 	console.log({first, second})
+// })
+// .catch('No data')
+
+// console.log({first, second})
+// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
+
+} 
+
+function startAgain() {
+	localStorage.removeItem('winnerImage')
+	return fetch('/ranks/addRandom', {
+	method: 'GET',
+	headers: {
+	'Accept': 'application/json',
+	'Content-Type': 'application/json'
+	}
+}).then(() => {
+	// let chooseGrid = document.getElementById('choose-container')
+	// chooseGrid.classList.remove('hide-container')
+	console.log('Restart occurred')
+	window.location.pathname = '/ranks/addRandom'
+})
+// .then(console.log({first, second}))
+// .then(() => {
+// 	console.log({first, second})
+// })
+// .catch('No data')
+
+
+// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
+}
+
+</script>

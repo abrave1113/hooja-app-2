@@ -1,0 +1,22 @@
+<div class="show-container">
+  <div class="relative-container">
+    <h2 class="page-header"><%=name%></h2>
+    <div class="dewey-details">
+        <div class="image-row-show">
+          <img class="dewey-picture" src="<%=pictureImagePath%>" style="height:150px;width:100px;display:block" data-loginheader="<%=useron%>">
+          <ul class='description'>
+            <li>age: <%=age%></li>
+            <li>hobby: <%=hobby%></li>
+            <li>city: <%=city%></li>
+            <li>state: <%=state%></li>
+          </ul>
+        </div>
+    </div>
+    <div class="btn-row-show">
+      <button href='#' class="show-btn  show-btn-primary">Edit</button>
+      <button href="#" class="show-btn  show-btn-primary">More Images</button>
+      <%- include('./partials/deleteForm') %>
+    </div>
+
+  </div>
+</div>

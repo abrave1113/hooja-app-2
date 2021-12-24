@@ -1,0 +1,156 @@
+<div class="form-wrap" data-tabsuseron="<%=useron%>">
+    <div class="tabs" data-tabsuseron="<%=useron%>">
+        <h3 class="tab-btn signup-tab"><a href="#signup-tab-content" class="tab-btn-child active"  data-type="signup-tab-content">Sign Up</a></h3>
+        <h3 id="login-tab-btn" class="tab-btn login-tab"><a href="#login-tab-content" class="tab-btn-child" data-type="login-tab-content">Login</a></h3>
+    </div><!--.tabs-->
+    
+    <div class="tabs-content" data-tabsuseron="<%=useron%>">
+        <div id="signup-tab-content" class="signup-content t-content active" data-id="signup-tab-content" data-tabsuseron="<%=useron%>">
+            <form class="signup-form" action="/users/users" method="post">
+                <input type="email" class="input" name='username' id="user_email" autocomplete="off" placeholder="Email">
+                <input type="text" class="input" name='name' id="user_name" autocomplete="off" placeholder="Name">
+                <input type="password" class="input" name='password' id="user_pass" autocomplete="off" placeholder="Password">
+                <input type="submit" class="button" value="Sign Up">
+            </form><!--.login-form-->
+            <div class="help-text">
+                <p>By signing up, you agree to our</p>
+                <p><a href="#">Terms of service</a></p>
+            </div><!--.help-text-->
+        </div><!--.signup-tab-content-->
+
+    <div class="tabs-content" data-tabsuseron="<%=useron%>">
+        <div id="login-tab-content" class="login-content t-content" data-id='login-tab-content' data-tabsuseron="<%=useron%>">
+            <form class="login-form" action="/users/users/login" method="post">
+                <input type="text" class="input" name='username' id="user_login" autocomplete="off" placeholder="Email or Username">
+                <input type="password" class="input" name='password' id="user_log_pass" autocomplete="off" placeholder="Password">
+                <input type="checkbox" class="checkbox" id="remember_me">
+                <label for="remember_me">Remember me</label>
+                <input class="button" type="submit" value="Login">                <!--type="submit" -->
+            </form><!--.login-form-->
+            <div class="help-text">
+                <p><a href="#">Forget your password?</a></p>
+            </div><!--.help-text-->
+        </div><!--.login-tab-content-->
+    </div><!--.tabs-content-->
+</div><!--.form-wrap-->
+<script>
+
+    const btns = document.querySelectorAll('.tab-btn')
+    const tabContent = document.querySelectorAll('.t-content')
+    const authent = document.querySelector('.form-wrap')
+    const signupForm = document.querySelector('.signup-form')
+    const loginForm = document.querySelector('.login-form')
+
+    const signupTabContent = document.getElementById('signup-tab-content')
+    const loginTabContent = document.getElementById('login-tab-content')
+    const loginTab = document.querySelector('.login-tab')
+    const signupTab = document.querySelector('.signup-tab')
+  
+    authent.addEventListener('click', function(e) {
+        const contType = e.target.dataset.type
+        
+        if(contType) {
+            // console.log(contType)
+            btns.forEach(function(btn) {
+                btn.children[0].classList.remove("active")
+                e.target.classList.add("active")
+            })
+
+            tabContent.forEach(function(article) {
+                // console.log(article.dataset.id)
+                article.classList.remove("active")
+                if (article.dataset.id == contType) {
+                    article.classList.add("active")
+                }
+            })
+            console.log(contType)
+        }
+
+    })
+
+    signupForm.addEventListener('submit', function(event) {
+        // console.log(event)        
+        // const mySet = new Array("login-tab-content")
+        // const loginCont = mySet[0]
+
+        localStorage.setItem('loginContType', loginCont)
+        const loginContType = localStorage.getItem('loginContType')
+
+        // console.log(element)
+        // (err, element) => {
+        //     if(err) {
+        //         return console.log(err)
+        //     }
+        //     fetch('users')
+        // }
+    
+       for(let i = tabContent.length; i > 0; i-- ) {
+                // console.log(article.dataset.id)
+                tcontent[i].classList.add("active")
+                if (tcontent[i].dataset.id !== loginContType) {
+                    tcontent[i].classList.remove("active")
+                }
+                console.log(tcontent[i].dataset.id == loginContType)
+            }
+        // signupTabContent.classList.remove('active')
+        // loginTabContent.classList.add('active')
+        console.log("signupUser has run")
+        // location.reload()
+        // window.location.reload()
+        // const user_email = document.getElementById('user_email').value
+        // const user_name = document.getElementById('user_name').value
+        // const user_pass = document.getElementById('user_pass').value
+        
+        // const result = await fetch('/users/users', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Accept': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         username: user_email,
+        //         name: user_name,
+        //         password: user_pass
+        //     })
+        // })
+        //     .then(res => res.json())
+        //     // .then(data => console.log('Data received'))
+
+    })
+    
+
+// function loginUser() {
+
+//     // const user_login = document.getElementById('user_login').value
+//     // const user_log_pass = document.getElementById('user_log_pass').value
+
+//     // const result = await fetch('/users/users-login', {
+//     //         method: 'POST',
+//     //         headers: {
+//     //             'Content-Type': 'application/json',
+//     //             'Accept': 'application/json'                
+//     //         },
+//     //         body: JSON.stringify({
+//     //             username: user_login,
+//     //             password: user_log_pass
+//     //         })
+//     //     })
+//     //         .then(res => res.json())
+
+//             loginTabContent.classList.remove('active')
+//             signupTabContent.classList.add('active')
+            
+//             // loginTab.classList.remove('active')
+//             // signupTab.classList.add('active')
+//     }
+
+
+        // const signupForm = document.getElementByClassName('signup-form')
+
+
+    // signUpForm.addEventListener('submit', () => {
+    //         signupTabContent.classList.remove('active')
+    //         loginTabContent.classList.add('active')
+    //     })
+
+</script>

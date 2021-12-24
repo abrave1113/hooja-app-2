@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Security-Policy"  content="default-src * data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * data: blob: 'unsafe-inline'; font-src * data: blob: 'unsafe-inline';">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security_Policy"
+			content="default-src *;">
+	<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+	<link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"
+	/>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+	<link id='main-css' rel="stylesheet" href="../../stylesheets/main.css">
+	<script defer src='https://unpkg.com/filepond-plugin-image-preview@4.6.8/dist/filepond-plugin-image-preview.js'></script>
+	<script defer src='https://unpkg.com/filepond-plugin-file-encode@2.1.10/dist/filepond-plugin-file-encode.js'></script>
+	<script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>	
+	<script defer src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+	<script defer src="https://unpkg.com/filepond@4.29.0/dist/filepond.js"></script>
+	<script defer src='../../javascripts/animation.js'></script>
+	<script defer src='../../javascripts/fileUpload.js'></script>
+	<title>Hooja App</title>
+</head>
+<body>
+	<%- include('../partials/header.ejs') %>	
+    <%- body %>
+	<%- include('../partials/footer.ejs') %>
+</body>
+</html>
