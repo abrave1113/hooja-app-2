@@ -50,10 +50,10 @@ var db = mongoose.connection;
 db.on('error', error => console.error(error));
 db.once('open', () => console.log('Connected to Mongoose'));
 
-app.use('/', indexRouter )
-app.use('/users', usersRouter )
-app.use('/deweys', deweysRouter )
-app.use('/ranks', ranksRouter)
+app.use('/api/index', indexRouter )
+app.use('/api/users', usersRouter )
+app.use('/api/deweys', deweysRouter )
+app.use('/api/ranks', ranksRouter)
 // app.use('/authorize', authRouter)
 
 app.use(
@@ -71,7 +71,7 @@ app.use(
 
 app.get('/', (req, res) => {
     try {
-        res.redirect('/deweys')
+        res.redirect('/api/deweys')
     } catch {
         res.send('Sorry, connection error')
     }
