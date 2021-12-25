@@ -46,7 +46,7 @@ const isAuth = (req, res, next) => {
     if(req.session.isAuth) {
         return next()
     } else {
-        res.redirect('/user/loginForm')
+        res.redirect('/users/user/loginForm')
     }
 }
 
@@ -75,7 +75,7 @@ router.use((req, res, next) =>  {
 
 const redirectLogin = (req, res, next) => {
     if(!req.session.isAuth) {
-        res.redirect('/user/loginForm')
+        res.redirect('/users/user/loginForm')
     }else {
         next()
     }
@@ -139,11 +139,11 @@ const posts = [
     router.post('/users', async (req, res) => {
 
         const deweys = await Dewey.find({}).sort({winRate:-1}).limit(12).exec()        
-        const newUser = await User.findOne({username: req.body.username})
+        // const newUser = await User.findOne({username: req.body.username})
 
-        if(newUser) {
-            res.redirect('/deweys')
-        }
+        // if(newUser) {
+        //     res.redirect('/deweys')
+        // }
 
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)

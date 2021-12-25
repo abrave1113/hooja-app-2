@@ -56,6 +56,15 @@ app.use('/api/deweys', deweysRouter )
 app.use('/api/ranks', ranksRouter)
 // app.use('/authorize', authRouter)
 
+app.options('/', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Endpoint, Token');
+    res.header('Access-Control-Allow-Credentials', true);
+    // res.sendStatus(200);
+    next()
+});
+
 app.use(
 	session({
 		secret: process.env.ACCESS_TOKEN_SECRET,
