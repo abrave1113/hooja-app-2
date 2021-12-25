@@ -19,7 +19,7 @@ const imageMimeTypes = ['image/jpg', 'image/jpeg','image/png','image/gif' ]
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./views/index');
 const deweysRouter = require('./routes/deweys');
 const ranksRouter = require('./routes/ranks');
 const usersRouter = require('./routes/users');
@@ -50,7 +50,7 @@ var db = mongoose.connection;
 db.on('error', error => console.error(error));
 db.once('open', () => console.log('Connected to Mongoose'));
 
-app.use('/api/index', indexRouter )
+app.use('/index', indexRouter )
 app.use('/api/users', usersRouter )
 app.use('/api/deweys', deweysRouter )
 app.use('/api/ranks', ranksRouter)
