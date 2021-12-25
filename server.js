@@ -80,7 +80,7 @@ app.use(
 
 app.get('/', (req, res) => {
     try {
-        res.redirect('/api/deweys')
+        res.redirect('/deweys')
     } catch {
         res.send('Sorry, connection error')
     }
