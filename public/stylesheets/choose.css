@@ -386,7 +386,7 @@
 @media (max-width:360px) {
 	#fs1.face-container {
 		width: 31vw;
-		aspect-ratio: 78 / 105;
+		/* aspect-ratio: 78 / 105; */
 		position: absolute;
 		left: 10%;
 		top: 62%;
@@ -394,8 +394,8 @@
 	}
 	#fs2.face-container {
 		width: 31vw;
-		aspect-ratio: 78 / 105;
-        transform: translate(50%, 0);		
+		/* aspect-ratio: 78 / 105;
+        transform: translate(50%, 0);		 */
 		position: absolute;
 		right: 10%;
 		top: 62%;
@@ -405,7 +405,7 @@
 		position: absolute;
 		width: var(--btn-540-btn-lg);		
 		bottom: 40vh;
-		right: -11%;
+		right: 11%;
 		padding: .125em;
 		font-size: var(--font-540-h1);				
 		text-align: center;
@@ -420,6 +420,7 @@
 	#submittal {
 		position: absolute;
 		bottom: 40vh;
+		left: 11%;
 		font-size: var(--font-540-h1);				
 		width: var(--btn-540-btn-lg);		
 	}
