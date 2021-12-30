@@ -103,7 +103,7 @@ input#login-only-btn {
 		/* width: 50%;
 		aspect-ratio: 78 / 95; */
 		margin: 0 auto;
-		font: 1em/1.375em "Times New Roman", serif;             
+		font: var(--font-540-h1), "Times New Roman", serif;             
 		background-color: #ffffff;            
 		/* z-index: 1; */
 	}
@@ -121,15 +121,16 @@ input#login-only-btn {
     }    
 }
 
-@media(max-width:520px) {
+@media(max-width:800px) {
     .login-only-form-wrapper {
 		position: absolute;
 		top: 50%;
 		left: 50%;
+        /* width: 75vw; */
 		transform: translate(-50%, -60%);            
-		width: 80%;
+		width: 70vw;
 		margin: 0 1em 0 0;
-		font: 1em/1.375em "Times New Roman", serif;             
+		font: var(--font-540-h1), "Times New Roman", serif;             
 		background-color: #ffffff;            
 		/* z-index: 1; */
 	}
@@ -164,7 +165,7 @@ input#login-only-btn {
         width: 50vw;
         height: 55vw;    
         margin: 0 auto;
-        font: 1em/1.375em "Times New Roman", serif;             
+        font: var(--font-540-h1), "Times New Roman", serif;             
         background-color: #ffffff;            
         /* z-index: 1; */
     }
@@ -253,7 +254,7 @@ input#login-only-btn {
 		top: 33%;
 		transform: translate(-50%, -50%);				
 	}
-}
+ }
 @media(max-width:320px) {
     .login-only-form-wrapper {
 		position: absolute;
@@ -262,7 +263,7 @@ input#login-only-btn {
 		transform: translate(-44%, -60%);            
 		width: 100%;
 		margin: 0 1em 0 0;
-		font: 1em/1.375em "Times New Roman", serif;             
+		font: var(--font-255-h1),"Times New Roman",serif;             
 		background-color: #ffffff;            
 		/* z-index: 1; */
 	}
