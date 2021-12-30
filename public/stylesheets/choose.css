@@ -403,7 +403,7 @@
 		#next-choose-btn {
 		height: 2em;
 		position: absolute;
-		width: var(--btn-540-btn-lg);		
+		width: var(--btn-780-btn-lg);		
 		bottom: 40vh;
 		right: 11%;
 		padding: .125em;
@@ -422,7 +422,7 @@
 		bottom: 40vh;
 		left: 11%;
 		font-size: var(--font-540-h1);				
-		width: var(--btn-540-btn-lg);		
+		width: var(--btn-780-btn-lg);		
 	}
 }
 
