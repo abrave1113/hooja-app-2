@@ -185,7 +185,7 @@
 }
 #fs1.face-container {
 	width: 16vw;
-	aspect-ratio: 78 / 117;
+	/* aspect-ratio: 78 / 117; */
 	position: absolute;
 	left: 10%;
 	top: 23%;
@@ -193,7 +193,7 @@
 }
 #fs2.face-container {
 	width: 16vw;
-	aspect-ratio: 78 / 117;
+	/* aspect-ratio: 78 / 117; */
 	position: absolute;
 	right: 10%;
 	top: 23%;

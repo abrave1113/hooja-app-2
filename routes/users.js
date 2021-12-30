@@ -46,7 +46,7 @@ const isAuth = (req, res, next) => {
     if(req.session.isAuth) {
         return next()
     } else {
-        res.redirect('/users/user/loginForm')
+        res.redirect('/user/loginForm')
     }
 }
 
@@ -75,7 +75,7 @@ router.use((req, res, next) =>  {
 
 const redirectLogin = (req, res, next) => {
     if(!req.session.isAuth) {
-        res.redirect('/users/user/loginForm')
+        res.redirect('/user/loginForm')
     }else {
         next()
     }
@@ -168,7 +168,7 @@ const posts = [
         }
         catch (error) {
             console.log("Could not generate user")
-            res.redirect('/users/user/loginForm')
+            res.redirect('/user/loginForm')
             // res.status(500).send()
         }
         
@@ -178,7 +178,7 @@ const posts = [
     router.post('/users/login', redirectHome, async (req, res, next) => {
         const authUser = await User.findOne( {username: req.body.username} )
         if (typeof(authUser) === 'undefined') {
-            return res.redirect('/deweys/deweys')                     // .status(400).send('User/password combination is not valid')
+            return res.redirect('/deweys')                     // .status(400).send('User/password combination is not valid')
         }
         // users.find(user => user.name = req.body.name)    
     
@@ -197,7 +197,7 @@ const posts = [
         }
         catch (error) {
             console.log('Cannot find user ', error)
-            res.redirect('/users/user/loginForm')
+            res.redirect('/user/loginForm')
         }
     }, async (req, res, next) => {
             const username = req.body.username
