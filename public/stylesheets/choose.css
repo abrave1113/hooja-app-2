@@ -202,20 +202,24 @@
 	position: absolute;
 	bottom: 18vh;
 	left: 33%;
+	width: 8rem;
 	padding: .125em;
 	background: blue;
 	color: yellow;
 	border: .0625em solid black;
+	text-align: center;
 	text-decoration: none;
 }
 #next-choose-btn {
 	position: absolute;
 	bottom: 18vh;
 	right: 33%;
+	width: 8rem;
 	padding: .125em;
 	background: blue;
 	color: yellow;
 	border: .0625em solid black;
+	text-align: center;	
 	text-decoration: none;
 }
 .submit-button-grid {
@@ -239,6 +243,7 @@
 		position: absolute;
 		bottom: 28vh;
 		left: 33%;
+		width: var(--btn-1020-btn-lg);
 		padding: .125em;
 		background: blue;
 		color: yellow;
@@ -249,6 +254,7 @@
 		position: absolute;
 		bottom: 28vh;
 		right: 33%;
+		width: var(--btn-1020-btn-lg);
 		padding: .125em;
 		background: blue;
 		color: yellow;
@@ -302,7 +308,9 @@
 		position: absolute;
 		bottom: 40vh;
 		left: 0;
+		width: var(--btn-780-btn-lg);		
 		padding: .125em;
+		font-size: var(--font-540-h1);		
 		background: blue;
 		color: yellow;
 		border: .0625em solid black;
@@ -314,7 +322,9 @@
 		position: absolute;
 		bottom: 40vh;
 		right: 10%;
+		width: var(--btn-780-btn-lg);		
 		padding: .125em;
+		font-size: var(--font-540-h1);				
 		background: blue;
 		color: yellow;
 		border: .0625em solid black;
@@ -393,10 +403,11 @@
 		#next-choose-btn {
 		height: 2em;
 		position: absolute;
-		width: 31vw;
+		width: var(--btn-540-btn-lg);		
 		bottom: 40vh;
 		right: -11%;
 		padding: .125em;
+		font-size: var(--font-540-h1);				
 		text-align: center;
 		background: blue;
 		color: yellow;
@@ -405,11 +416,12 @@
 		text-justify: center;
 		/* justify-content: flex-end;	 */
 		margin-right:.03125em;
-		font-size:0.75em
 	}
 	#submittal {
 		position: absolute;
 		bottom: 40vh;
+		font-size: var(--font-540-h1);				
+		width: var(--btn-540-btn-lg);		
 	}
 }
 
@@ -430,3 +442,4 @@
 		left: 50%;
 	}
 }
+
