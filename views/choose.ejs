@@ -38,8 +38,8 @@
 
 	<div class="submit-button-wrapper">
 		<div class="submit-button-grid">
-			<a href="#" id='submittal' class='submit-btn' onclick='submittal()'>Submit</a>		
-			<a href='#' id='next-choose-btn' class='choose' onclick='chooseAgain()'>Choose Again</a>		
+			<a href="#" id='submittal' class='submit-btn' onclick='submit()'>Submit</a>		
+			<a href='#' id='next-choose-btn' class='choose hide-container' onclick='chooseAgain()'>Choose Again</a>		
 		</div>
 	</div>
 
@@ -153,14 +153,14 @@ function dewView2(picture) {
 	}	
 }
 
-function submittal() {
+function submit() {
 // hit new route that takes the first and second variables and passes them to the route
 	// document.querySelector('.choose-container').classList.add('hide-container')
 	const first = localStorage.getItem('first')
 	console.log(first)
 	const second = localStorage.getItem('second')
 	const firstImage = localStorage.getItem('firstImage')
-
+	
 	const viewer1 = document.getElementById('fs1')
 	viewer1.setAttribute('background-image','firstImage')
 	// if(viewer1.classList.contains('hide-container')) {
@@ -177,6 +177,14 @@ function submittal() {
 	// chooseGrid.setAttribute('style', '{display:none}')
 	if(!chooseGrid.classList.contains('hide-container')) {
 		chooseGrid.classList.add('hide-container')
+	}
+
+	const submittal = document.getElementById('submittal')
+	const nextChoose = document.getElementById('next-choose-btn')
+
+	if(nextChoose.classList.contains('hide-container')) {
+		submittal.classList.add('hide-container')
+		nextChoose.classList.remove('hide-container')
 	}
 	
 		return fetch('/deweys/submittal/selected', {
@@ -203,6 +211,13 @@ function chooseAgain() {
 	const first = localStorage.getItem('first')
 	console.log(first)
 	const second = localStorage.getItem('second')
+
+	const submittal = document.getElementById('submittal')
+	const nextChoose = document.getElementById('next-choose-btn')
+
+	if(submittal.classList.contains('hide-container')) {
+		submittal.classList.remove('hide-container')
+	}
 	
 		return fetch('/deweys/choose', {
 		method: 'GET',
