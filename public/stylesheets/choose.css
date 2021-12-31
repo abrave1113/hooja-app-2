@@ -324,7 +324,7 @@
 		border: .0625em solid black;
 		text-decoration: none;
 		justify-content: flex-start;
-		margin-left: 25px;
+		margin-left: 10vw;
 	}
 	#next-choose-btn {
 		position: absolute;
