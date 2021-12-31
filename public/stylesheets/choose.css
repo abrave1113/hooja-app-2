@@ -396,7 +396,7 @@
 		width: var(--btn-780-btn-lg);		
 		/* aspect-ratio: 78 / 105; */
 		position: absolute;
-		left: 10vw;
+		left: 5vw;
 		top: 62%;
 		/* z-index: 1; */
 	}
@@ -405,7 +405,7 @@
 		/* aspect-ratio: 78 / 105;
         transform: translate(50%, 0);		 */
 		position: absolute;
-		right: 10vw;
+		right: 5vw;
 		top: 62%;
 	}
 	#next-choose-btn {
@@ -413,7 +413,7 @@
 		position: absolute;
 		width: var(--btn-780-btn-lg);		
 		bottom: 35vh;
-		right: 10vw;
+		right: 5vw;
 		padding: .125em;
 		font-size: var(--font-540-h1);				
 		text-align: center;
@@ -431,6 +431,7 @@
 		left: 0%;
 		font-size: var(--font-540-h1);				
 		width: var(--btn-780-btn-lg);
+		margin-left: 5vw;		
 	}
 }
 
