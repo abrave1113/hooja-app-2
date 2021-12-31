@@ -549,7 +549,7 @@
 }
 @media (max-width:300px) {
 	#finalGameClick {	
- 		bottom: 30%;
+ 		bottom: 35%;
 		left: 50%;		 
 		transform: translate(-50%, 0%);			
 	}
