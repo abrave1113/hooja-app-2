@@ -551,7 +551,7 @@
 	#finalGameClick {	
  		bottom: 45%;
 		left: 50%;		 
-		transform: translate(-50%, 0%);			
+		transform: translate(-50%, -100%);			
 	}
 	#theTenName.dwinnername {
 		/* width: 18%; */
