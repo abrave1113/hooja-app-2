@@ -187,7 +187,7 @@
 	width: 16vw;
 	/* aspect-ratio: 78 / 117; */
 	position: absolute;
-	left: 10%;
+	left: 0%;
 	top: 23%;
 	/* z-index: 1; */
 }
@@ -344,7 +344,7 @@
 		width: 27vw;
 		/* aspect-ratio: 78 / 117; */
 		position: absolute;
-		left: 10%;
+		left: 0%;
 		top: 62%;
 		/* z-index: 1; */
 	}
@@ -396,7 +396,7 @@
 		width: 31vw;
 		/* aspect-ratio: 78 / 105; */
 		position: absolute;
-		left: 10%;
+		left: 0%;
 		top: 62%;
 		/* z-index: 1; */
 	}

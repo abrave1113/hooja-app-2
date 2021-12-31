@@ -47,7 +47,6 @@
 	border: .0625em solid black;
 	text-decoration: none;
 }
-
 .choice-container {
 	position: relative;
 	width: 100%;
@@ -96,7 +95,7 @@
 
 #theTen {
 	width: 20%;
-	aspect-ratio: 78 / 105;
+	/* aspect-ratio: 78 / 105; */
 	font-size: 1.1em;
 	position: absolute;
 	left: 50%;
@@ -161,7 +160,7 @@
 
  #fs1 {
 	width: 20%;
-	aspect-ratio: 78 / 117;
+	/* aspect-ratio: 78 / 117; */
 	position: absolute;
 	left: 10%;
 	top: 23%;
@@ -170,7 +169,7 @@
 
 #fs2 {
 	width: 20%;
-	aspect-ratio: 78 / 117;
+	/* aspect-ratio: 78 / 117; */
 	position: absolute;
 	right: 10%;
 	top: 23%;
@@ -188,7 +187,7 @@
 @media (max-width:780px) {
 	#theTen {
 		width: 48%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		font-size: 1em;
 		text-align: center;
 	}
@@ -261,7 +260,7 @@
 	}
 	#fs1 {
 		width: 20%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		left: 10%;
 		top: 40%;
@@ -269,7 +268,7 @@
 	}	
 	#fs2 {
 		width: 20%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		right: 10%;
 		top: 40%;
@@ -380,7 +379,7 @@
 	}
 	#fs1 {
 		width: 20%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		left: 10%;
 		top: 40%;
@@ -388,7 +387,7 @@
 	}	
 	#fs2 {
 		width: 20%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		right: 10%;
 		top: 40%;
@@ -403,7 +402,7 @@
 	}
 	#faceSelectFinal1.faceSelectFinal1 {
 		width: 45%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		left:50%;
 		top: 2%;
@@ -412,7 +411,7 @@
 	}
 	#faceSelectFinal2.faceSelectFinal2 {
 		width: 45%;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		left: 50%;
 		top: 39%;
