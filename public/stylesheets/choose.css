@@ -314,7 +314,7 @@
 	}
 	#submittal {
 		position: absolute;
-		bottom: 40vh;
+		bottom: 35vh;
 		left: 0%;
 		width: var(--btn-780-btn-lg);		
 		padding: .125em;
@@ -328,7 +328,7 @@
 	}
 	#next-choose-btn {
 		position: absolute;
-		bottom: 40vh;
+		bottom: 35vh;
 		right: 10vw;
 		width: var(--btn-780-btn-lg);		
 		padding: .125em;
@@ -408,7 +408,7 @@
 		right: 10vw;
 		top: 62%;
 	}
-		#next-choose-btn {
+	#next-choose-btn {
 		/* height: 2em; */
 		position: absolute;
 		width: var(--btn-1020-btn-lg);		
