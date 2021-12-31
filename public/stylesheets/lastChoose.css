@@ -100,8 +100,8 @@
 	font-size: 1.1em;
 	position: absolute;
 	left: 50%;
-	top: 47%;
-    transform: translate(-50%, -50%);
+	top: 20%;
+    transform: translate(-50%, 0%);
 	z-index: 1;
 }
 
