@@ -198,6 +198,14 @@
 	right: 10%;
 	top: 23%;
 }
+#submit-button-wrapper{
+	left:0;
+	width:100%;
+}
+#submit-button-grid{
+	left:0;
+	width:100%;
+}
 #submittal {
 	position: absolute;
 	bottom: 18vh;
@@ -403,9 +411,9 @@
 		#next-choose-btn {
 		height: 2em;
 		position: absolute;
-		width: var(--btn-780-btn-lg);		
+		width: var(--btn-1020-btn-lg);		
 		bottom: 40vh;
-		right: 11%;
+		right: 10%;
 		padding: .125em;
 		font-size: var(--font-540-h1);				
 		text-align: center;
@@ -420,9 +428,9 @@
 	#submittal {
 		position: absolute;
 		bottom: 40vh;
-		left: 11%;
+		left: 10%;
 		font-size: var(--font-540-h1);				
-		width: var(--btn-780-btn-lg);		
+		width: var(--btn-1020-btn-lg);		
 	}
 }
 
