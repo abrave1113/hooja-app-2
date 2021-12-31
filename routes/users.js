@@ -46,7 +46,7 @@ const isAuth = (req, res, next) => {
     if(req.session.isAuth) {
         return next()
     } else {
-        res.redirect('/user/loginForm')
+        res.redirect('/users/user/loginForm')
     }
 }
 
@@ -58,7 +58,7 @@ router.use((req, res, next) =>  {
         next()
   } catch {
         console.log('Internal server problem')
-        res.redirect('/deweys/deweys')
+        res.redirect('/deweys')
     }
   })
     
@@ -75,7 +75,7 @@ router.use((req, res, next) =>  {
 
 const redirectLogin = (req, res, next) => {
     if(!req.session.isAuth) {
-        res.redirect('/user/loginForm')
+        res.redirect('/users/user/loginForm')
     }else {
         next()
     }
@@ -168,7 +168,7 @@ const posts = [
         }
         catch (error) {
             console.log("Could not generate user")
-            res.redirect('/user/loginForm')
+            res.redirect('/users/user/loginForm')
             // res.status(500).send()
         }
         
@@ -197,7 +197,7 @@ const posts = [
         }
         catch (error) {
             console.log('Cannot find user ', error)
-            res.redirect('/user/loginForm')
+            res.redirect('/users/user/loginForm')
         }
     }, async (req, res, next) => {
             const username = req.body.username
