@@ -193,6 +193,7 @@ const posts = [
             } 
                 else {
                     console.log('not authorized')
+                    res.redirect('/users/user/loginForm')                    
             }
         }
         catch (error) {
@@ -219,7 +220,7 @@ const posts = [
         catch (error) {
             console.log('Cannot authorize user ')
             next(error)
-            res.status(404).end()
+            res.status(404).redirect('/deweys')
         }
     })
 
