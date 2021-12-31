@@ -198,11 +198,11 @@
 	right: 10%;
 	top: 23%;
 }
-#submit-button-wrapper{
+.submit-button-wrapper{
 	left:0;
 	width:100%;
 }
-#submit-button-grid{
+.submit-button-grid{
 	left:0;
 	width:100%;
 }
@@ -235,7 +235,7 @@
 	height: 5%;
 	display: flex;
 	flex-direction: row;
-	align-content: center;
+	align-content: flex-start;
 	justify-content: space-between;
 }
 @media(min-aspect-ratio: 72 / 100) and (max-width: 1100px) {
@@ -356,13 +356,12 @@
 		top: 62%;
 	}
 	.submit-button-wrapper {
-		position: absolute;
+		position: relative;
 		width:100%;
-		height: 5vh;
 		top: 90vh;
 	}
 	.submit-button-grid {
-		position: relative;
+		position: absolute;
 		width: 100%;
 		height: 100%;
 		display: flex;
