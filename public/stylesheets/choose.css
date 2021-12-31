@@ -412,7 +412,7 @@
 		height: 2em;
 		position: absolute;
 		width: var(--btn-1020-btn-lg);		
-		bottom: 40vh;
+		bottom: 35vh;
 		right: 10vw;
 		padding: .125em;
 		font-size: var(--font-540-h1);				
@@ -427,7 +427,7 @@
 	}
 	#submittal {
 		position: absolute;
-		bottom: 40vh;
+		bottom: 35vh;
 		left: 0%;
 		font-size: var(--font-540-h1);				
 		width: var(--btn-1020-btn-lg);		
