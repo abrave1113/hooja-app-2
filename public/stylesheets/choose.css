@@ -1,6 +1,6 @@
 * {
 	box-sizing: border-box;
-	margin-top: 0;
+	margin-top: 0%;
 }
 .join-btn {
 	top: 1.875em;
@@ -15,14 +15,14 @@
 	width: 100%;
 	height: 90%;
 	top: 9%;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	bottom: 0%;
+	left: 0%;
+	right: 0%;
 }
 .spacer {
 	display: block;
 	width: 100%;
-	margin-top: 0;
+	margin-top: 0%;
 }
 /* .body-container {
 	position: relative;
@@ -199,11 +199,11 @@
 	top: 23%;
 }
 .submit-button-wrapper{
-	left:0;
+	left:0%;
 	width:100%;
 }
 .submit-button-grid{
-	left:0;
+	left:0%;
 	width:100%;
 }
 #submittal {
@@ -274,7 +274,7 @@
 	.spacer {
 		display: none;
 		width: 100%;
-		margin-top: 0;
+		margin-top: 0%;
 	}
 	.orange {
 		position: relative;
@@ -315,7 +315,7 @@
 	#submittal {
 		position: absolute;
 		bottom: 40vh;
-		left: 0;
+		left: 0%;
 		width: var(--btn-780-btn-lg);		
 		padding: .125em;
 		font-size: var(--font-540-h1);		
@@ -342,7 +342,7 @@
 	}
 	#fs1.face-container {
 		width: 27vw;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		left: 10%;
 		top: 62%;
@@ -350,7 +350,7 @@
 	}
 	#fs2.face-container {
 		width: 27vw;
-		aspect-ratio: 78 / 117;
+		/* aspect-ratio: 78 / 117; */
 		position: absolute;
 		right: 10%;
 		top: 62%;
@@ -377,8 +377,8 @@
 		height: 50vh;
 		top: -5vh;
 		bottom: 30vh;
-		left: 0;
-		right: 0;
+		left: 0%;
+		right: 0%;
 		grid-template-rows: 1fr 6fr;
 	}
 	.choose-container {
@@ -428,7 +428,7 @@
 	#submittal {
 		position: absolute;
 		bottom: 40vh;
-		left: 10%;
+		left: 0%;
 		font-size: var(--font-540-h1);				
 		width: var(--btn-1020-btn-lg);		
 	}
