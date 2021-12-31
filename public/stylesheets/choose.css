@@ -187,7 +187,7 @@
 	width: 16vw;
 	/* aspect-ratio: 78 / 117; */
 	position: absolute;
-	left: 0%;
+	left: 10vw;
 	top: 23%;
 	/* z-index: 1; */
 }
@@ -195,7 +195,7 @@
 	width: 16vw;
 	/* aspect-ratio: 78 / 117; */
 	position: absolute;
-	right: 10%;
+	right: 10vw;
 	top: 23%;
 }
 .submit-button-wrapper{
@@ -344,7 +344,7 @@
 		width: 27vw;
 		/* aspect-ratio: 78 / 117; */
 		position: absolute;
-		left: 0%;
+		left: 10vw;
 		top: 62%;
 		/* z-index: 1; */
 	}
@@ -352,7 +352,7 @@
 		width: 27vw;
 		/* aspect-ratio: 78 / 117; */
 		position: absolute;
-		right: 10%;
+		right: 10vw;
 		top: 62%;
 	}
 	.submit-button-wrapper {
@@ -396,7 +396,7 @@
 		width: 31vw;
 		/* aspect-ratio: 78 / 105; */
 		position: absolute;
-		left: 0%;
+		left: 10vw;
 		top: 62%;
 		/* z-index: 1; */
 	}
@@ -405,7 +405,7 @@
 		/* aspect-ratio: 78 / 105;
         transform: translate(50%, 0);		 */
 		position: absolute;
-		right: 10%;
+		right: 10vw;
 		top: 62%;
 	}
 		#next-choose-btn {
