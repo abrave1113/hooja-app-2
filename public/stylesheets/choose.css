@@ -409,7 +409,7 @@
 		top: 62%;
 	}
 		#next-choose-btn {
-		height: 2em;
+		/* height: 2em; */
 		position: absolute;
 		width: var(--btn-1020-btn-lg);		
 		bottom: 35vh;
