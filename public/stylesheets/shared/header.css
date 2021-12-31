@@ -180,7 +180,7 @@
     }
     #submittal {
         position: absolute;
-        bottom: 40vh;
+        /* bottom: 40vh; */
         left: 0%;
         padding: .125em;
         background: blue;
