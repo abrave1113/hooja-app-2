@@ -67,42 +67,25 @@ console.log(!faceSelection1Image)
 let sellImage
 let sellImage2
 
-// const socket = io('http://localhost:6001')
-
 		function tallies(event) {
-			// localStorage.setItem('first', null)
-			// var selectionTop = 0
-
-			// const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
-			// const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
 
 			const selectionTop = document.getElementById(event.currentTarget.id)
 			console.log(!selectionTop)
 			const sellId = selectionTop.dataset.id
 			sellImage = selectionTop.dataset.pictureimagepath
- 			// console.log(!sellId)
-			// console.log(sellImage)
 			localStorage.setItem('first', sellId )
-			// localStorage.setItem('firstImage', sellImage )			 
 			dewTall(sellId)
 
 			dewView(sellImage)
 
 	}
 		function tallies2(event) {
-			// localStorage.setItem('second', null)
-			// var selectionBottom = 0
-
-			// const faceSelection3Id = document.getElementById('faceSelection3').dataset.id
-			// const faceSelection4Id = document.getElementById('faceSelection4').dataset.id
 
 			const selectionBottom = document.getElementById(event.currentTarget.id)
-			// console.log(selectionBottom)
 			const sellId2 = selectionBottom.dataset.id
 			sellImage2 = selectionBottom.dataset.pictureimagepath			
 			console.log(!sellId2)
 			localStorage.setItem('second', sellId2 )
-			// localStorage.setItem('secondImage', sellImage2 )			 		
 			dewTall2(sellId2)
 			dewView2(sellImage2)			
 	}
@@ -118,7 +101,6 @@ let sellImage2
 					throw error; 
 				})
 		}
-		// return response.json();
 	});
 };
 
@@ -133,7 +115,6 @@ function dewTall2(id) {
 					throw error;
 				})
 		}
-		// return response.json();
 	});
 };
 
@@ -154,8 +135,7 @@ function dewView2(picture) {
 }
 
 function submit() {
-// hit new route that takes the first and second variables and passes them to the route
-	// document.querySelector('.choose-container').classList.add('hide-container')
+
 	const first = localStorage.getItem('first')
 	console.log(first)
 	const second = localStorage.getItem('second')
@@ -163,18 +143,11 @@ function submit() {
 	
 	const viewer1 = document.getElementById('fs1')
 	viewer1.setAttribute('background-image','firstImage')
-	// if(viewer1.classList.contains('hide-container')) {
-	// 	viewer1.classList.remove('hide-container')
-	// }
 	
 	const viewer2 = document.getElementById('fs2')
-	// viewer2.setAttribute('background-image','picture')
-	// if(viewer2.classList.contains('hide-container')) {
-	// 	viewer2.classList.remove('hide-container')
-	// }	
 	
 	const chooseGrid = document.getElementById('choose-container')
-	// chooseGrid.setAttribute('style', '{display:none}')
+
 	if(!chooseGrid.classList.contains('hide-container')) {
 		chooseGrid.classList.add('hide-container')
 	}
@@ -196,14 +169,6 @@ function submit() {
 		body: JSON.stringify( {first: first, second: second} )
 	})
 	.then(console.log({first, second}))
-	// .then(() => {
-	// 	console.log({first, second})
-	// })
-	// .catch('No data')
-
-	// console.log({first, second})
-	// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
-	
 } 
 
 function chooseAgain() {
@@ -226,18 +191,8 @@ function chooseAgain() {
 		'Content-Type': 'application/json'
 		}
 	}).then(() => {
-		// let chooseGrid = document.getElementById('choose-container')
-		// chooseGrid.classList.remove('hide-container')
 		location.reload()
 	})
-	// .then(console.log({first, second}))
-	// .then(() => {
-	// 	console.log({first, second})
-	// })
-	// .catch('No data')
-
-
-	// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
 }
 
 </script>

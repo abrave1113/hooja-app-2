@@ -39,15 +39,13 @@ const deweySchema = new mongoose.Schema({
 		type: Number
 	},
 	rank: {
-		type: Number			//mongoose.Schema.Types.ObjectId
-		// ref: 'Rank'		
+		type: Number
 	}
 })
 deweySchema.virtual('pictureImagePath').get(function () {
 	if (this.pictureImage != null && this.pictureImageType != null) {
 		return `data:${this.pictureImageType};charset=utf-8;base64,${this.pictureImage.toString('base64')}`
 	}
-	// schema.set('toJSON', { getters: true, virtuals: true });	
 });
 
 const model = mongoose.model('Dewey', deweySchema); 

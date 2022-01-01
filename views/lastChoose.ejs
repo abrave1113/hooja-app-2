@@ -21,41 +21,14 @@
 	<div id='theTen' class='hide-container'></div>
 
 	<a href='#' id='next-btn-final' class='nbf hide-container' onclick='startAgain()'>Do it Again</a>		
-
-
-
-
-
-	<!-- <div id='faceSelection1' class='hide-container face-container'></div>
-	<div id='faceSelection2' class='hide-container face-container'></div> -->
 </div>
 
 </div>
 <script>
 
-// const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
-// const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
-
-// const faceSelection1Image = document.getElementById('faceSelection1').dataset.pictureimagepath
-// const faceSelection2Image = document.getElementById('faceSelection2').dataset.pictureimagepath
-
-
-// let dewArray = [faceSelection1Id, faceSelection2Id]
-
-// console.log(dewArray)
-// console.log(!faceSelection1Image)
-
 let sellImageFinal
 
-
-// const socket = io('http://localhost:6001')
-
 	function tallies(event) {
-		// localStorage.setItem('first', null)
-		// var selectionTop = 0
-
-		// const faceSelection1Id = document.getElementById('faceSelection1').dataset.id
-		// const faceSelection2Id = document.getElementById('faceSelection2').dataset.id
 
 		const fsf1 = document.getElementById('faceSelectFinal1')
 		const fsf2 = document.getElementById('faceSelectFinal2')
@@ -78,27 +51,6 @@ let sellImageFinal
 		localStorage.removeItem('firstImage', sellImageFinal)
 		localStorage.setItem('winnerImage', sellImageFinal)
 		localStorage.setItem('winnerName', sellName)
-
-
-
-		// dewView()
-
-		// const selection
-		// const pos = array.indexOf('selectionWin')
-		// lossPos = (1 - pos)
-
-		// if(nextRound)
-		// // console.log(!selectionTop)
-		// const sellId = selectionWin.id
-		// sellImageFinal = selectionWin.pictureimagepath
-		//  // console.log(!sellId)
-		// // console.log(sellImageFinal)
-		// localStorage.setItem('winner', sellId )
-		// // localStorage.setItem('firstImage', sellImageFinal )			 
-		// dewTall(sellId)
-
-		// dewView(sellImageFinal)
-
 }
 
 
@@ -148,62 +100,19 @@ function dewTall(id) {
 				throw error;
 			})
 		}
-	// return response.json();
 	});
 
 };
 
 function submittal() {
-// hit new route that takes the first and second variables and passes them to the route
-// document.querySelector('.choose-container').classList.add('hide-container')
 
+	const viewer = document.getElementById('theTen')
+	const winnerId = localStorage.getItem('winnerId')
 
-const viewer = document.getElementById('theTen')
-const winnerId = localStorage.getItem('winnerId')
+	const winner = roundOneFeed.find(dwy => dwy.id == winnerId)
 
-const winner = roundOneFeed.find(dwy => dwy.id == winnerId)
-
-viewer.setAttribute('background-image','winner.pictureImagePath')
-viewer.classList.remove('hide-container')
-
-// if(viewer1.classList.contains('hide-container')) {
-// 	viewer1.classList.remove('hide-container')
-// }
-
-// const viewer2 = document.getElementById('faceSelection2')
-// viewer2.setAttribute('background-image','picture')
-// if(viewer2.classList.contains('hide-container')) {
-// 	viewer2.classList.remove('hide-container')
-// }	
-
-// const chooseGrid = document.getElementById('choose-container')
-// if(!chooseGrid.classList.contains('hide-container')) {
-// 	chooseGrid.classList.add('hide-container')
-// }
-// 	const faceViewer1 = document.getElementById('faceSelection1')
-// 	const faceViewer2 = document.getElementById('faceSelection2')
-
-// 	faceViewer1.classList.add('hide-container')
-// 	faceViewer2.classList.add('hide-container')
-
-	// return fetch(`/deweys/submittal/final/${winner}`)
-	// , {
-// 	method: 'POST',
-// 	headers: {
-// 	'Accept': 'application/json',
-// 	'Content-Type': 'application/json'
-// 	},
-// 	body: JSON.stringify( {first: first, second: second} )
-// })
-// .then(console.log({first, second}))
-// .then(() => {
-// 	console.log({first, second})
-// })
-// .catch('No data')
-
-// console.log({first, second})
-// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
-
+	viewer.setAttribute('background-image','winner.pictureImagePath')
+	viewer.classList.remove('hide-container')
 } 
 
 function startAgain() {
@@ -213,21 +122,11 @@ function startAgain() {
 	headers: {
 	'Accept': 'application/json',
 	'Content-Type': 'application/json'
-	}
-}).then(() => {
-	// let chooseGrid = document.getElementById('choose-container')
-	// chooseGrid.classList.remove('hide-container')
-	console.log('Restart occurred')
-	window.location.pathname = '/ranks/addRandom'
-})
-// .then(console.log({first, second}))
-// .then(() => {
-// 	console.log({first, second})
-// })
-// .catch('No data')
-
-
-// setTimeout(document.querySelector('.choose-container').classList.remove('hide-container'), 3000)
+		}
+	}).then(() => {
+		console.log('Restart occurred')
+		window.location.pathname = '/ranks/addRandom'
+	})
 }
 
 </script>
