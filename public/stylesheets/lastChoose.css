@@ -422,7 +422,6 @@
 	#finalGameClick {	
 		position: absolute;
 		display: flex;
-		top: 50%;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
