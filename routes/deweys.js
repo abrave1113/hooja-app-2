@@ -1,11 +1,9 @@
 const url = require('url') 
 const path = require('path')
 const express = require('express')
-// const expressLayouts = require('express-ejs-layouts');
 var app = express()
 const router = express.Router()
 const ranks = require('./ranks')
-// const { Agent } = require('https')
 const mongoose = require('mongoose')
 const Dewey = require('../models/dewey')
 const Rank = require('../models/rank')
@@ -18,13 +16,11 @@ const nextProcess = require('../public/javascripts/nextProcess')
 const setGameToOn = require('../public/javascripts/setGameToOn')
 const subMain = require('../public/javascripts/subMain')
 const status = require('../public/javascripts/igStatus')
-// const isItLastRound = require('../public/javascripts/isItLastRound')
 const lastImgSort = require('../public/javascripts/lastImgSort')
 const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 const events = require('events')
 const { restart } = require('nodemon')
 const MongoDBSession = require('connect-mongodb-session')(session)
-// const { db } = require('../models/dewey')
 const toId = mongoose.Types.ObjectId
 const chooseOrNotInitial = require('../public/javascripts/chooseOrNotInitial')
 const chooseOrNotNext = require('../public/javascripts/chooseOrNotNext')
@@ -37,22 +33,12 @@ const store = new MongoDBSession({
 })
 
 router.get('/', async (req, res) => {
-  // if(useron) {
-  //   useron = true
-  // }
-  // let start = 0
-  // let searchOptions = {}
-  // if (req.query.name != null && req.query.name !== '') {
-  //   searchOptions.name = new RegExp(req.query.name, 'i')
-  // }
-  try {
+try {
       console.log('Made it this far')
       const deweys = await Dewey.find({}).sort({winRate:-1}).limit(12).exec()
       const useron = 0
       const messageonoff = 0
-      // app.set('useron', useron)
       app.set('messageonoff', messageonoff)
-      // start = start + 1
       
       res.render('index', {
         deweys: deweys, useron: useron, messageonoff: messageonoff
@@ -111,32 +97,6 @@ router.use((req, res, next) =>  {
     res.redirect('/deweys/deweys')
   }
 })
-  
-
-
-// router.get('/', async (req, res) => {
-    // if(useron) {
-    //   useron = true
-    // }
-    // let start = 0
-    // let searchOptions = {}
-    // if (req.query.name != null && req.query.name !== '') {
-    //   searchOptions.name = new RegExp(req.query.name, 'i')
-    // }
-//     try {
-//         const deweys = await Dewey.find({}).sort({winRate: -1}).limit(12).exec()
-//         const useron = 0
-//         app.set('useron', useron)
-//         // start = start + 1
-
-//         res.render('index', {
-//           deweys: deweys, useron: useron
-//         })
-//       } catch {
-//           console.log('Startup failed')
-//           res.end()
-//       }
-//  })
 
  router.get('/deweys', isAuth, async (req, res) => {
     try {
@@ -151,43 +111,22 @@ router.use((req, res, next) =>  {
  })
 
 router.get('/choose', isAuth, initialize, chooseOrNotInitial, async (req, res) => {
-  // const rofProxy = []
   try {
         const deweys = await Dewey.find({}).sort({random: -1})
         .limit(8)
-        // .exec()
 
         const dData = Array.from(deweys)
-        // rofProxy.push(...dData)
 
-        // app.set('inGame', true)
-        // console.log(app.locals.settings.inGame)
         initProcess(res, dData)
-        // res.render('choose', { deweys: deweys, dewey1: dewey1, dewey2: dewey2, dewey3: dewey3, dewey4: dewey4} )        
-        // next()
-        //res.end
     } 
-    // myEmitter.emit('load')
+
      catch (error) {
-      console.log(error)             //'Error has occurred'
+      console.log(error)
       res.end
     } 
   })
 
-// The next choose route
-// router.get('/choose', chooseOrNotNext, (req, res, next) => {
-//             try {
-//             console.log('Is this working?')  //roundOneFeed[2]
-//             // nextProcess(res)
-//             } catch {
-//               console.log('Process has ended')
-//               res.end
-//             }
-//             next()
-//   })
-
-// GETTING INDEX DATA FOR WIN/LOSS AUGMENTATION
-  router.get('/selection1/:id', (req, res) => {
+router.get('/selection1/:id', (req, res) => {
     const params = req.params
     let prevReq
     if(typeof prevReq !== undefined) {
@@ -198,17 +137,13 @@ router.get('/choose', isAuth, initialize, chooseOrNotInitial, async (req, res) =
       app.set('dew1Id', dew1Id)
       console.log(req.app.locals.inGame)
       const dweyIndex1 = roundOneFeed.findIndex(dwey => dwey.id == dew1Id)
-      // roundOneFeed.find(dwey => dwey.id === dew1Id).inGameWin += 1      
-      // console.log(dwey1.id)
       console.log(app.locals.settings.dew1Id)
       console.log(dew1Id, dweyIndex1)
       app.set('dweyIndex1', dweyIndex1)      
-      // roundOneFeed[dwey1].inGameLoss = 0
-      // roundOneFeed[dwey1].inGameWin += 1
       res.status(200).end()
       const prevReq = params
     } catch (err) {
-      console.log(err)               //'Error getting selection row 1 data.'
+      console.log(err)
       res.end()
     }
 })
@@ -224,8 +159,6 @@ router.get('/selection2/:id', (req, res) => {
     app.set('dew2Id', dew2Id)
 
     const dweyIndex2 = roundOneFeed.findIndex(dwey => dwey.id == dew2Id)
-    // roundOneFeed.findIndex(dwey => dwey.id == dew2Id).inGameWin += 1
-      // console.log(dwey2.id)
     console.log(dew2Id, dweyIndex2)
     app.set('dweyIndex2', dweyIndex2)      
     res.status(200).end()
@@ -236,20 +169,6 @@ router.get('/selection2/:id', (req, res) => {
   }
 })
 
-//   router.get('/selection2/:1d', (req, res) => {
-//     try {
-//       let dew1Id = req.params.id
-//       app.locals.dew1Id = dew1Id
-//       console.log(dew1Id)
-//       res.end
-//     } catch{
-//       console.log('Error getting selection row 2 data.')
-//       res.end
-//     }
-// })  
-  
-
-//New Dewey Route
 router.get('/new', async (req, res) => {
   try {
       const useron = 10
@@ -258,17 +177,6 @@ router.get('/new', async (req, res) => {
       res.redirect('/')
   }
 })    
-
-// router.get('/:id', async (req, res) => {
-//     try {
-//           const dewey = await Dewey.findById(req.params.id)
-//           const deweys = await Dewey.find({})
-//           res.render('show', { dewey: dewey, deweys })
-//   } catch {
-//             res.send('Error getting new Dewey')
-//   }
-// })
-  
 
 router.post('/join', async (req, res) => {
   console.log(mongoose.connection.readyState)
@@ -282,20 +190,16 @@ router.post('/join', async (req, res) => {
         winRate: 0,
         rank: 0
     })
-    // console.log(dewey.state)
-    // console.log(req.body.picture != null && req.body.picture !== "")
+
     console.log('We are close')
     saveImage(dewey, req.body.picture)    
   try { 
-    // dewey.pictureImage = pictureImage
-    // dewey.pictureImageType = pictureImageType
-    // console.log(dewey.picture !==null && dewey.picture !=="")
+
     console.log('We are even closer')
     const newDewey = await dewey.save()
     const useron = 10
     res.render('show', {id: newDewey.id, name: newDewey.name, age: newDewey.age, hobby: newDewey.hobby, city: newDewey.city, state: newDewey.state, pictureImagePath: newDewey.pictureImagePath, useron: useron} )
-    // console.log('We are really close')
-    // res.json("We are really close!")
+
     } 
     catch {
         res.redirect('/deweys')
@@ -323,14 +227,10 @@ router.post('/join', async (req, res) => {
     })
 
     router.post('/submittal/selected', setGameToOn, status, subMain, nextProcess,  (req, res, next) => {
-      // if(req.app.locals.inGame=true && nextRoundFeed < 3) {
-      //   console.log('ready to wind it up')
-      // }
+
       app.set('inGame', req.app.locals.inGame)      
-      // isItLastRound(req, res, next)
+
       try {
-        //Set locals variables for render
-        // app.set('inGame', false)
         console.log('In-game status:'+" "+app.locals.settings.inGame)
         
         
@@ -350,26 +250,11 @@ router.post('/join', async (req, res) => {
         const id4 = res.locals.id4
       } 
       catch {
-        console.log('Where do we go from here')  //Error transferring data feed
+        console.log('Where do we go from here')
         res.end
     } 
     next()
   })
-
-  // router.post('/submittal/chooseFinal', (req, res, next) =>  {
-  //   try{
-  //       const id1 = nextRoundFeed[0].id
-  //       const id2 = nextRoundFeed[1].id
-
-  //       const pictureImagePath1 = nextRoundFeed[0].pictureImagePath
-  //       const pictureImagePath2 = nextRoundFeed[1].pictureImagePath
-
-  //       res.render('lastChoose', id1, id2, pictureImagePath1, pictureImagePath2)
-  //   } catch {
-  //     res.redirect('/')
-  //   }
-  //   next()
-  // })
 
   router.get('/submittal/lasttwodew', (req, res) => {
     try {
@@ -414,40 +299,6 @@ router.post('/join', async (req, res) => {
         }
   })
 
-  // router.use('/submittal', isItLastRound)
-    // router.use( async (error, req, res) => {
-    //   try {
-    //       console.log(req.app.locals.inGame)
-    //       console.log(id4)
-    //       // var nextDewey = nextProcess(res)
-    //       // router.route('/choose').get(() => console.log('Who knew'))
-    //       // res.render('choose', { pictureImagePath1, pictureImagePath2, pictureImagePath3, pictureImagePath4, name1, name2, name3, name4, id1, id2, id3, id4  } )
-    //       // next()
-    //   } catch {
-    //       console.log('Error transferring data feed')  //Error transferring data feed
-    //       return
-    //   }
-      
-    // })    
-// Delete route
-// router.post('/:id', async (req, res) => {
-//   try {
-//           // const deweys = await Dewey.find({})            
-//           const dewey = await Dewey.findById(req.params.id)
-//           await dewey.remove()
-//           res.redirect('/')
-//   } catch {
-//       res.render('show', { dewey: dewey })
-//   }
-
-// })    
-
-// router.use('/gameOn', setGameToOn)
-
-// router.use(error, req, res) {
-
-// }
-
 router.use((error, req, res) => {
     if (error) {
       console.log('error from server routes');               /*'error from server routes'*/
@@ -456,35 +307,16 @@ router.use((error, req, res) => {
     }
   })
 
-// function keepGameOpen (req, res, next) {
-//   console.log (app.locals.settings.inGame)
-//   next()
-// }
-
-// function errorHandle (err, req, res) {
-//   if (err) {
-//     console.log(err.message)
-//   } else {
-//   res.end
-//   }
-// }
-
 function saveImage(dewey, pictureEncoded) {
 	
   if (pictureEncoded == null) return
 	  const picture = JSON.parse(pictureEncoded)
     .then(console.log('Encoded image received'))  
-    // console.log(picture.data !== null)
+
   if (picture !== null && imageMimeTypes.includes(picture.type)) {
       dewey.pictureImage = new Buffer.from(picture.data, 'base64')
       dewey.pictureImageType = picture.type
     }
-  //   console.log(pictureImage !== null)
-	// 	dewey.pictureImageType = picture.type
-  //   return {pictureImage, pictureImageType}
-	// } catch {
-  //   console.log("No data or incorrect data submitted.")
-  //   return
   }
 
 module.exports = router

@@ -7,8 +7,6 @@ const path = require('path')
 
 router.get('/', (req, res) => {
     try {
-        // const dewey = await Dewey.findOne({name:'dina'})
-        // console.log(dewey.city)
         res.redirect('/deweys')
     } catch (error) {
         console.log(error)

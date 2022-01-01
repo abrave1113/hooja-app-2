@@ -12,11 +12,6 @@ const jwt = require('jsonwebtoken');
 const session = require('express-session')
 const MongoDBSession = require('connect-mongodb-session')(session)
 const authenticateToken = require('../public/javascripts/authenticateToken.js')
-// mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
-// const users = []
-
-    // app.use(bodyParser.urlencoded({ limit: '500mb', extended: false }));
-    // app.use(bodyParser.json());
 
 const store = new MongoDBSession({
         uri: process.env.DATABASE_URL,
@@ -61,17 +56,6 @@ router.use((req, res, next) =>  {
         res.redirect('/deweys')
     }
   })
-    
-    // const mongoose = require('mongoose');
-    // const authenticateToken = require('./public/javascripts/authenticateToken');
-    // mongoose.connect('mongodb://localhost/hooja', {useNewUrlParser: true, useUnifiedTopology: true});
-    // var db = mongoose.connection;
-    // db.on('error', error => console.error(error));
-    // db.once('open', () => console.log('Connected to Mongoose'));
-        
-    // router.get('/users', (req, res) => {
-    //     res.json(users)
-    // })
 
 const redirectLogin = (req, res, next) => {
     if(!req.session.isAuth) {
@@ -102,7 +86,6 @@ const posts = [
             
     router.get('/posts', authenticateToken, (req, res) => {
         res.json(posts.filter(post => post.username == req.app.locals.user.name))
-        // res.json(posts)
     })
 
 
@@ -114,7 +97,6 @@ const posts = [
     router.get('/user/loginForm', async (req, res) => {
         try {
             const useron = 1
-            // app.set('useron', useron)
             const deweys = await Dewey.find({}).sort({winRate: -1}).limit(12).exec()                    
             res.render( 'index', { deweys: deweys, useron: useron } )
         }
@@ -139,11 +121,6 @@ const posts = [
     router.post('/users', async (req, res) => {
 
         const deweys = await Dewey.find({}).sort({winRate:-1}).limit(12).exec()        
-        // const newUser = await User.findOne({username: req.body.username})
-
-        // if(newUser) {
-        //     res.redirect('/deweys')
-        // }
 
         try {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -160,8 +137,6 @@ const posts = [
 
             const newUser = await user.save()
             const useron = 2
-            // app.set('useron', useron)
-            // users.push(user)
 
             console.log('User successfully created', user)
             res.render('index', { deweys: deweys, useron: useron } )
@@ -169,7 +144,6 @@ const posts = [
         catch (error) {
             console.log("Could not generate user")
             res.redirect('/users/user/loginForm')
-            // res.status(500).send()
         }
         
     })
@@ -178,15 +152,9 @@ const posts = [
     router.post('/users/login', redirectHome, async (req, res, next) => {
         const authUser = await User.findOne( {username: req.body.username} )
         if (typeof(authUser) === 'undefined') {
-            return res.redirect('/deweys')                     // .status(400).send('User/password combination is not valid')
+            return res.redirect('/deweys')
         }
-        // users.find(user => user.name = req.body.name)    
-    
-        // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-        // res.json({ accessToken: accessToken })
-        // if(user == null) {
-        //     return res.status(400).send('Cannot find user')
-        // }
+
         try {
             if(await bcrypt.compare(req.body.password, authUser.password)) {
                 return next()
@@ -204,7 +172,6 @@ const posts = [
             const username = req.body.username
             const user = {username: username}
             const useron = 3
-            // app.set('useron', useron)
         try {
             const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
             const deweys = await Dewey.find({}).sort({winRate: -1}).limit(12).exec()                            
@@ -254,13 +221,9 @@ const posts = [
     }
 } )
     
-
-    // const PORT = process.env.PORT || 6001
-    // router.listen(PORT, console.log(`Connected on port ${PORT}...`) )
-    
     router.use((error, req, res) => {
         if (error) {
-          console.log(error);               /*'error from server routes'*/
+          console.log(error);
         } else {
         res.end
         }
