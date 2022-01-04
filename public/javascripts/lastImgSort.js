@@ -6,16 +6,9 @@ const nextProcess = require('./nextProcess.js')
 
 
 function lastImgSort (res, data) {
-    // const roundOneFeed = initProcess.roundOneFeed
-    // console.log(roundOneFeed[2].name)
     try {
-        // console.log(roundOneFeed[0].inGameLoss)
         let lastOne = data
         let roundLast = lastOne
-        // console.log(roundOne[0].inGameLoss)
-        // console.log(Array.isArray(roundOneFeed))
-
-        // dData.sort((dew1, dew2) => dew1.winRate - dew2.winRate)
 
             const init = 0
             const last = 1
