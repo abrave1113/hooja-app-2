@@ -36,7 +36,7 @@ function subMain (req, res, next) {
         //Bring in res object from nextProcess.js
         console.log('reroute: '+ reroute)
         if (reroute==='true') {
-            res.redirect('/deweys/submittal/nexttwodews')
+            res.redirect('/deweys/submittal/lasttwodew')
         }
     } catch {
         console.log('There was a selection update error.')
