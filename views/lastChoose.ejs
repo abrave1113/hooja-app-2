@@ -47,8 +47,10 @@ let sellImageFinal
 		const sellId = selectionWin.dataset.id
 		const sellImageFinal = selectionWin.dataset.pictureimagepath
 		const sellName = selectionWin.dataset.name
-		localStorage.setItem('winnerId', sellId)
 		localStorage.removeItem('firstImage', sellImageFinal)
+		localStorage.removeItem('first')
+		localStorage.removeItem('second')
+		localStorage.setItem('winnerId', sellId)
 		localStorage.setItem('winnerImage', sellImageFinal)
 		localStorage.setItem('winnerName', sellName)
 }
