@@ -31,7 +31,7 @@ function lastImgSort (res, data) {
 
             const first = roundOneFeed.findIndex(dwy => dwy.id == roundLast[init].id)
             roundOneFeed[first].inGameLoss = 1
-            const ultimate = roundOneFeed.findIndex(dwy => dwy.id == roundLast[last].id)
+            const ultimate = roundOneFeed.findIndex(dew => dew.id == roundLast[last].id)
             roundOneFeed[ultimate].inGameLoss = 1
 
             // localStorage.getItem('first')
