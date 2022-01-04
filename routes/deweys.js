@@ -272,7 +272,7 @@ router.post('/join', async (req, res) => {
     try {
           const id = req.params.id
           const winner = await nextRoundFeed.find(dwy => dwy.id == id)
-          const runnerUp = await nextRoundFeed.find(dwy => dwy.name !== winner.name)
+          const runnerUp = await nextRoundFeed.find(dew => dew.name !== winner.name)
 
           const name = winner.name
           const pictureImagePath = winner.pictureImagePath
