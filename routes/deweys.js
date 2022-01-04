@@ -275,7 +275,7 @@ router.post('/join', async (req, res) => {
           const runnerUp = await nextRoundFeed.find(dwy => dwy.id !== id)
 
           const name = winner.name
-          const picureImagePath = winner.pictureImagePath
+          const pictureImagePath = winner.pictureImagePath
 
           const winStat = await roundOneFeed.find(dwy => dwy.id===winner.id)
           winStat.inGameWin += 1
