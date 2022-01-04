@@ -90,9 +90,7 @@ function dewTall(id) {
 	if(playItAgain.classList.contains('hide-container')) {
 		playItAgain.classList.remove('hide-container')
 	}
-	return fetch(`/deweys/submittal/final/${id}`, () => {
-		res.send(req.params.id)
-		}).then(response => {
+	return fetch(`/deweys/submittal/final/${id}`, (response) => {
 		if(response.status >= 400) {
 			return response.json().then(errResData => {
 				const error = new Error('Something went wrong!')

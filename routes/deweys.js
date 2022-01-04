@@ -271,7 +271,7 @@ router.post('/join', async (req, res) => {
   router.get('/submittal/final/:id', async (req, res) => {
     try {
           const id = req.params.id
-          const winner = await nextRoundFeed.find(dwy => dwy.id === id)
+          const winner = await nextRoundFeed.find(dwy => dwy.id == id)
           const runnerUp = await nextRoundFeed.find(dwy => dwy.id !== id)
 
           const name = winner.name
