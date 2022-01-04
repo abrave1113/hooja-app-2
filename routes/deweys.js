@@ -289,9 +289,6 @@ router.post('/join', async (req, res) => {
           await Dewey.findOneAndUpdate({'name': winner.name}, {  $inc: {"win": winner.inGameWin, "loss": 0}} )
               .then(console.log(winner.name+" was updated."))
 
-          roundOneFeed = null
-          nextRoundFeed = null
-
           res.render('lastChoose', name, pictureImagePath)
         } 
           catch {
@@ -303,9 +300,14 @@ router.use((error, req, res) => {
     if (error) {
       console.log(error.message);               /*'error from server routes'*/
     } else {
-    res.redirect('/deweys')
+      if (app.get("inGame") == false) {
+      roundOneFeed = null
+      nextRoundFeed = null
+      // res.redirect('/deweys')
     }
-  })
+    console.log("No server errors")
+  }
+})
 
 function saveImage(dewey, pictureEncoded) {
 	
