@@ -74,7 +74,7 @@ function dewView() {
 
 	theTenName.innerText = winnerName
 
-	viewer.setAttribute('style', 'background-image: url(' +`${picture}`+ ');background-repeat:none;background-size:cover');
+	viewer.setAttribute('style', 'background-image: url(`${picture}`);background-repeat:none;background-size:cover');
 
 	if(!finalButtonBank.classList.contains('hide-container')) {
 		btnLabel.classList.add('hide-container')
