@@ -271,16 +271,16 @@ router.post('/join', async (req, res) => {
   router.get('/submittal/final/:id', async (req, res) => {
     try {
           const id = req.params.id
-          const winner = nextRoundFeed.find(dwy => dwy.id === id)
-          const runnerUp = nextRoundFeed.find(dwy => dwy.id !== id)
+          const winner = await nextRoundFeed.find(dwy => dwy.id === id)
+          const runnerUp = await nextRoundFeed.find(dwy => dwy.id !== id)
 
           const name = winner.name
           const picureImagePath = winner.pictureImagePath
 
-          const winStat = roundOneFeed.find(dwy => dwy.id===winner.id)
+          const winStat = await roundOneFeed.find(dwy => dwy.id===winner.id)
           winStat.inGameWin += 1
 
-          const lossStat = roundOneFeed.find(dwy => dwy.id===runnerUp.id)
+          const lossStat = await roundOneFeed.find(dwy => dwy.id===runnerUp.id)
           lossStat.inGameLoss = 1    //could be eliminated but may have future use
 
           await Dewey.findOneAndUpdate({'name': runnerUp.name}, {  $inc: {"win": runnerUp.inGameWin, "loss": 1}} )
@@ -301,7 +301,7 @@ router.post('/join', async (req, res) => {
 
 router.use((error, req, res) => {
     if (error) {
-      console.log('error from server routes');               /*'error from server routes'*/
+      console.log(error.message);               /*'error from server routes'*/
     } else {
     res.redirect('/deweys')
     }

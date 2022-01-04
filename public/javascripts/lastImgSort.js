@@ -1,9 +1,6 @@
 var express = require('express')
 var app = express()
 const path = require('path')
-// const mongoose = require('mongoose')
-// const Dewey = require('../../models/dewey.js')
-// const { db } = require('../../models/dewey.js')
 const initProcess = require('./imgSort.js')
 const nextProcess = require('./nextProcess.js')
 
