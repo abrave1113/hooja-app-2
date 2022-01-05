@@ -13,11 +13,6 @@ input {
   font: 16px/26px "Poppins, sans-serif" 
 }
 
-.sign-in-form-wrapper {
-  overflow-x:hidden; 
-  overflow-y:auto;
-}
-
 /* body {
   color: #666;
   background-color: #f1f2f2;
@@ -121,3 +116,9 @@ input {
       text-align: center;
       font-size: 14px; }
   
+@media(max-width=750px) {
+  .sign-in-form-wrapper {
+    overflow-x:hidden; 
+    overflow-y:scroll;
+  }
+}
