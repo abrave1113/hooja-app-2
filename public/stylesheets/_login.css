@@ -128,7 +128,7 @@ input {
   .form-wrap .help-text p {
     font-size: 7px; }
   .start-container {
-    width:85%;
+    min-width:85%;
     height:auto;
     overflow-y:scroll;
   }
