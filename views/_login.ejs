@@ -1,4 +1,4 @@
-<div class="form-wrap" data-tabsuseron="<%=useron%>">
+<div class="form-wrap sign-in-form-wrapper" data-tabsuseron="<%=useron%>">
     <div class="tabs" data-tabsuseron="<%=useron%>">
         <h3 class="tab-btn signup-tab"><a href="#signup-tab-content" class="tab-btn-child active"  data-type="signup-tab-content">Sign Up</a></h3>
         <h3 id="login-tab-btn" class="tab-btn login-tab"><a href="#login-tab-content" class="tab-btn-child" data-type="login-tab-content">Login</a></h3>
@@ -21,7 +21,7 @@
     <div class="tabs-content" data-tabsuseron="<%=useron%>">
         <div id="login-tab-content" class="login-content t-content" data-id='login-tab-content' data-tabsuseron="<%=useron%>">
             <form class="login-form" action="/users/users/login" method="post">
-                <input type="text" class="input" name='username' id="user_login" autocomplete="off" placeholder="Email or Username">
+                <input type="text" class="input" name='username' id="user_login" autocomplete="off" inputmode="email" placeholder="Email or Username">
                 <input type="password" class="input" name='password' id="user_log_pass" autocomplete="off" placeholder="Password">
                 <input type="checkbox" class="checkbox" id="remember_me">
                 <label for="remember_me">Remember me</label>

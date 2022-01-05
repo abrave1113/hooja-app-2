@@ -27,29 +27,6 @@ function lastImgSort (res, data) {
             const ultimate = roundOneFeed.findIndex(dew => dew.id == roundLast[last].id)
             roundOneFeed[ultimate].inGameLoss = 1
 
-            // localStorage.getItem('first')
-
-            // console.log(lesee)
-
-            // console.log(roundOneFeed[5].name)
-            // console.log('Here again')
-
-            // const dewey1 =  await Dewey.find({ "name": name1 })
-            // dewey1.pictureImagePath =  await Dewey.find({ "name": name1 } ).pictureImagePath
-
-            // const dewey2 =  await Dewey.find({ "name": "Rachel" } )
-            // // dewey2.pictureImagePath =  await Dewey.find({ name: name2 } ).pictureImagePath
-            // console.log(dewey2.age != null)
-
-            // const dewey3 =  await Dewey.find({ "name": name3 } )
-            // dewey3.pictureImagePath =  await Dewey.find({ "name": name3 } ).pictureImagePath
-
-            // const dewey4 =  await Dewey.find({ "name": name4 } )
-            // dewey4.pictureImagePath =  await Dewey.find({ "name": name4 } ).pictureImagePath
-        
-
-        // return { dewey1, dewey2, dewey3, dewey4}
-        // res.redirect(request.get('referer'));
         const useron = 3
         res.render('lastChoose', {pictureImagePath1, pictureImagePath2, name1, name2, id1, id2, useron: useron } )
     } catch {

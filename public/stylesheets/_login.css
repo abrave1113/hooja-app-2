@@ -10,7 +10,13 @@ a {
     color: #4FDA8C; }
 
 input {
-  font: 16px/26px "Poppins, sans-serif" }
+  font: 16px/26px "Poppins, sans-serif" 
+}
+
+.sign-in-form-wrapper {
+  overflow-x:hidden; 
+  overflow-y:auto;
+}
 
 /* body {
   color: #666;

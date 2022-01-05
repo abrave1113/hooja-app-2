@@ -1,4 +1,6 @@
 .login-only-form-wrapper {
+    overflow-x:hidden; 
+    overflow-y:auto;
     position: absolute;
     top: 50%;
     left: 50%;
