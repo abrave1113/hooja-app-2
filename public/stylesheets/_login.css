@@ -118,9 +118,9 @@ input {
   
 @media(max-width=450px) {
   .sign-in-form-wrapper {
-    width:160vw;
+    width:90vw;
     min-width:238px;
-    height:auto;
+    /* height:auto; */
     font-size:var(--font-540-h1);
     overflow-x:hidden; 
     overflow-y:scroll;
@@ -128,8 +128,8 @@ input {
   .form-wrap .help-text p {
     font-size: 7px; }
   .start-container {
-    min-width:85%;
-    height:auto;
+    /* min-width:85%; */
+    /* height:auto; */
     overflow-y:scroll;
   }
 }
