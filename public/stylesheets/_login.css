@@ -20,7 +20,7 @@ input {
 
 .form-wrap {
   background-color: #fff;
-  max-width: 20em;
+  width: 20em;
   /* height: 25em; */
   position: absolute;
   left: 50%;
@@ -118,7 +118,8 @@ input {
   
 @media(max-width=450px) {
   .sign-in-form-wrapper {
-    min-width:85vw;
+    width:85vw;
+    height:auto;
     overflow-x:hidden; 
     overflow-y:scroll;
   }
