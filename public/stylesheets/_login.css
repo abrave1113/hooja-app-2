@@ -119,8 +119,12 @@ input {
 @media(max-width=450px) {
   .sign-in-form-wrapper {
     width:85vw;
+    min-width:238px;
     height:auto;
+    font-size:var(--font-540-h1);
     overflow-x:hidden; 
     overflow-y:scroll;
   }
+  .form-wrap .help-text p {
+    font-size: 7px; }
 }
