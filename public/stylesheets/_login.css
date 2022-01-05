@@ -118,7 +118,7 @@ input {
   
 @media(max-width=450px) {
   .sign-in-form-wrapper {
-    min-width:75vw;
+    min-width:85vw;
     overflow-x:hidden; 
     overflow-y:scroll;
   }
