@@ -118,7 +118,7 @@ input {
   
 @media(max-width=450px) {
   .sign-in-form-wrapper {
-    width:85vw;
+    width:160vw;
     min-width:238px;
     height:auto;
     font-size:var(--font-540-h1);
