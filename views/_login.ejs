@@ -37,7 +37,7 @@
 
 	function setWdt() {
 		setTimeout(function () {
-        let viewwidth = window.innerWidth;
+        let viewwidth = document.innerWidth;
 		let viewheight = viewwidth * (7/4);		
         let viewport = document.querySelector("meta[name=viewport]");
         viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
