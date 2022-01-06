@@ -35,15 +35,6 @@
 </div><!--.form-wrap-->
 <script>
 
-	function setWdt() {
-		setTimeout(function () {
-        let viewwidth = document.innerWidth;
-		let viewheight = viewwidth * (7/4);		
-        let viewport = document.querySelector("meta[name=viewport]");
-        viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
-    }, 300);
-}
-
     const btns = document.querySelectorAll('.tab-btn')
     const tabContent = document.querySelectorAll('.t-content')
     const authent = document.querySelector('.form-wrap')
@@ -54,6 +45,15 @@
     const loginTabContent = document.getElementById('login-tab-content')
     const loginTab = document.querySelector('.login-tab')
     const signupTab = document.querySelector('.signup-tab')
+
+    function setWdt() {
+		setTimeout(function () {
+        let viewwidth = document.innerWidth;
+		let viewheight = viewwidth * (7/4);		
+        let viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
+    }, 300);
+}
   
     authent.addEventListener('click', function(e) {
         const contType = e.target.dataset.type
@@ -105,5 +105,6 @@
         console.log("signupUser has run")
 
     })
+    
 
 </script>
