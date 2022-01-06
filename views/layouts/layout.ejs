@@ -23,19 +23,10 @@
 	<script defer src='../../javascripts/fileUpload.js'></script>
 	<title>Hooja App</title>
 </head>
-<body onload='setWdt()'>
+<body>
 	<%- include('../partials/header.ejs') %>	
     <%- body %>
 	<%- include('../partials/footer.ejs') %>
 </body>
-<script>
-	function setWdt() {
-		setTimeout(function () {
-        let viewwidth = window.innerWidth;
-		let viewheight = viewwidth * (7/4);		
-        let viewport = document.querySelector("meta[name=viewport]");
-        viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
-    }, 300);
-}
-</script>
+
 </html>

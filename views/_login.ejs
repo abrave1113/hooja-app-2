@@ -1,4 +1,4 @@
-<div class="form-wrap sign-in-form-wrapper" data-tabsuseron="<%=useron%>">
+<div class="form-wrap sign-in-form-wrapper" data-tabsuseron="<%=useron%>"  onload='setWdt()'>
     <div class="tabs" data-tabsuseron="<%=useron%>">
         <h3 class="tab-btn signup-tab"><a href="#signup-tab-content" class="tab-btn-child active"  data-type="signup-tab-content">Sign Up</a></h3>
         <h3 id="login-tab-btn" class="tab-btn login-tab"><a href="#login-tab-content" class="tab-btn-child" data-type="login-tab-content">Login</a></h3>
@@ -34,6 +34,15 @@
     </div><!--.tabs-content-->
 </div><!--.form-wrap-->
 <script>
+
+	function setWdt() {
+		setTimeout(function () {
+        let viewwidth = window.innerWidth;
+		let viewheight = viewwidth * (7/4);		
+        let viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
+    }, 300);
+}
 
     const btns = document.querySelectorAll('.tab-btn')
     const tabContent = document.querySelectorAll('.t-content')
