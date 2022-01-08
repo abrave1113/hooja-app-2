@@ -134,3 +134,10 @@ input {
     overflow-y:scroll;
   }
 }
+
+@media(max-height=400px) {
+  .form-wrap{
+    width:90vw;
+    overflow-y:scroll;
+  }
+}
