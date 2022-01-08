@@ -146,8 +146,6 @@ input#login-only-btn {
     }
     .form-wrap {
         background-color: #fff;
-        /* width: 90%; */
-		/* aspect-ratio: 78 / 95; */
         position: absolute;
         left: 50%;
         transform: translate(-50%, -65%);	
@@ -173,7 +171,7 @@ input#login-only-btn {
     }
     .form-wrap {
         background-color: #fff;
-        width: 50%;
+        /* width: 50%; */
         position: absolute;
         left: 50%;
         transform: translate(-50%, -65%);	
